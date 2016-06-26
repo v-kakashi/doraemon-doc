@@ -4,7 +4,8 @@ import { join } from 'path';
 import { marked } from 'atool-doc-util';
 
 function addContentToAssets(content, filename, compilation) {
-  compilation.assets[filename] = {        // disable no-param-reassign
+  /* eslint-disable no-param-reassign */
+  compilation.assets[filename] = {
     source: () => content,
     size: () => content.length,
   };
