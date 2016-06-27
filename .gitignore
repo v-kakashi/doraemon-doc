@@ -3,3 +3,5 @@ lib
 __site
 .vscode
 /npm-debug.log
+dist
+__site

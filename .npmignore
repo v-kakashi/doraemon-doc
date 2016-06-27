@@ -1,4 +1,5 @@
 .DS_Store
-config/
 node_modules/
 src/
+dist/
+__site/
