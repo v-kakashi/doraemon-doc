@@ -1,3 +1,3 @@
 export const tplSet = {
-  github: 'tpl/element.ejs',
-};
+  github: 'tpl/element.ejs'
+}

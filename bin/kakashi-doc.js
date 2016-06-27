@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 
-var cp = require('child_process');
+var cp = require('child_process')
 
-function start() {
-  const p = cp.fork(__dirname + '/atool-doc', process.argv.slice(2));
+function start () {
+  const p = cp.fork(__dirname + '/kakashi-doc', process.argv.slice(2))
   p.on('message', function (data) {
     if (data === 'restart') {
-      p.kill('SIGINT');
-      start();
+      p.kill('SIGINT')
+      start()
     }
-  });
+  })
 }
 
 if (!process.send) {
-  start();
+  start()
 } else {
-  var program = require('commander');
+  var program = require('commander')
 
   program
     .version(require('../package').version, '-v, --version')
@@ -27,12 +27,10 @@ if (!process.send) {
     .option('--port <number>', 'specify server port, default 8002', '8002')
     .option('--build', 'only build')
     .option('-w, --watch', 'using with --build, watch mode')
-    .parse(process.argv);
+    .parse(process.argv)
 
-  program.cwd = process.cwd();
+  program.cwd = process.cwd()
 
-  require('../lib/doc')(program);
-  require('atool-monitor').emit();
+  require('../lib/doc')(program)
+  require('atool-monitor').emit()
 }
-
-
