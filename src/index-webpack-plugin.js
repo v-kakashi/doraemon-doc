@@ -30,7 +30,7 @@ export default function IndexWebpackPlugin (options) {
     },
     ...options
   }
-  
+
   const apply = compiler => {
     compiler.plugin('emit', (compilation, cb) => {
       const content = render(readFileSync(template, 'utf-8'), {
