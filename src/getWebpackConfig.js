@@ -114,20 +114,6 @@ export default function (source, asset, dest, cwd, tpl, config) {
       filename: 'index.new.html',
       template: 'tpl/index.ejs',
       inject: true,
-      'files': {
-        'css': [ 'main.css' ],
-        'js': [ 'assets/head_bundle.js', 'assets/main_bundle.js' ],
-        'chunks': {
-          'head': {
-            'entry': 'assets/head_bundle.js',
-            'css': [ 'main.css' ]
-          },
-          'main': {
-            'entry': 'assets/main_bundle.js',
-            'css': []
-          }
-        }
-      },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     })
