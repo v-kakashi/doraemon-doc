@@ -2,6 +2,10 @@
 
 Static demo generator based on [atool-build](https://github.com/ant-tool/atool-build) and [dora](https://github.com/dora-js/dora)
 
+```js
+console.log('1111')
+```
+
 **before**
 ```
 ./

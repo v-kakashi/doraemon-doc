@@ -1,26 +1,13 @@
 
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import getBabelCommonConfig from './getBabelConfig'
-import { join } from 'path'
 var utils = require('./utils')
 
 export default function getWebpackCommonConfig (args) {
   const babelQuery = getBabelCommonConfig()
-
   return {
     babel: babelQuery,
-
     devtool: args.devtool,
-
-    resolve: {
-      modulesDirectories: ['node_modules', join(__dirname, '../node_modules')],
-      extensions: ['', '.web.js', '.js', '.vue']
-    },
-
-    resolveLoader: {
-      modulesDirectories: ['node_modules', join(__dirname, '../node_modules')]
-    },
-
     module: {
       loaders: [{
         test: /\.vue$/,
@@ -45,7 +32,7 @@ export default function getWebpackCommonConfig (args) {
         loader: 'url',
         query: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
       {
@@ -53,7 +40,7 @@ export default function getWebpackCommonConfig (args) {
         loader: 'url',
         query: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
       {

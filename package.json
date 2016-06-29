@@ -1,6 +1,6 @@
 {
   "name": "kakashi-doc",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "一款文档生成器",
   "main": "./bin/kakashi-doc.js",
   "directories": {
@@ -10,6 +10,7 @@
     "kakashi-doc": "./bin/kakashi-doc.js"
   },
   "scripts": {
+    "rebuild": "npm run build && lessc ./static/less/style.less ./static/css/main.css && node ./bin/kakashi-doc.js",
     "prepublish": "npm run build",
     "start": "concurrently 'npm run dev' 'npm run doc'",
     "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",

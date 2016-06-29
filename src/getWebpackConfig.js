@@ -1,5 +1,5 @@
 import path, { join } from 'path'
-import getWebpackCommonConfig from './getWebpackCommonConfig'
+import getWebpackLoaderConfig from './getWebpackLoaderConfig'
 import webpack, { ProgressPlugin } from 'webpack'
 import glob from 'glob'
 import Copy from 'copy-webpack-plugin'
@@ -34,7 +34,7 @@ const getEntry = function (source) {
 export default function (source, asset, dest, cwd, tpl, config) {
   const pkg = require(join(cwd, 'package.json'))
 
-  const webpackConfig = getWebpackCommonConfig({ cwd, devtool: '#inline-cheap-module-source-map' })
+  const webpackConfig = getWebpackLoaderConfig({ cwd, devtool: '#inline-cheap-module-source-map' })
 
   const entry = getEntry(source)
   webpackConfig.entry = entry
@@ -45,13 +45,19 @@ export default function (source, asset, dest, cwd, tpl, config) {
   }
   webpackConfig.cwd = cwd
   webpackConfig.demoSource = source
-  webpackConfig.resolve.root = cwd
-  webpackConfig.resolve.alias = {
-    [`${pkg.name}$`]: join(cwd, 'index.js'),
-    [pkg.name]: cwd
+  webpackConfig.resolve = {
+    root: cwd,
+    alias: {
+      [`${pkg.name}$`]: join(cwd, 'index.js'),
+      [pkg.name]: cwd
+    },
+    modulesDirectories: ['node_modules', join(__dirname, '../node_modules'), join(root, 'node_modules')],
+    extensions: ['', '.web.js', '.js', '.vue']
   }
-  webpackConfig.resolve.modulesDirectories.push(join(root, 'node_modules'))
-  webpackConfig.resolveLoader.modulesDirectories.push(join(root, 'node_modules'))
+
+  webpackConfig.resolveLoader = {
+    modulesDirectories: ['node_modules', join(__dirname, '../node_modules'), join(root, 'node_modules')]
+  }
 
   webpackConfig.module.loaders = webpackConfig.module.loaders.map(i => {
     if (i.loader) {
