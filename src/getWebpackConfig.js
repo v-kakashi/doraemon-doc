@@ -3,7 +3,8 @@ import getWebpackLoaderConfig from './getWebpackLoaderConfig'
 import webpack, { ProgressPlugin } from 'webpack'
 import glob from 'glob'
 import Copy from 'copy-webpack-plugin'
-import Index from './index-webpack-plugin'
+// import Index from './index-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const root = path.join(__dirname, '..')
 
@@ -103,16 +104,32 @@ export default function (source, asset, dest, cwd, tpl, config) {
         stream.write(`💻   ${msg}`)
         stream.clearLine(1)
       } else if (percentage === 1) {
-        console.log('\nwebpack: bundle build is now finished.')
+        console.log('\nwebpack: bundle build is now finished')
       }
     }),
     new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
     new webpack.optimize.OccurenceOrderPlugin(),
     new Copy([{ from: asset, to: asset }]),
-    new Index({
-      params: {
-        link
-      }
+    new HtmlWebpackPlugin({
+      filename: 'index.new.html',
+      template: 'tpl/index.ejs',
+      inject: true,
+      'files': {
+        'css': [ 'main.css' ],
+        'js': [ 'assets/head_bundle.js', 'assets/main_bundle.js' ],
+        'chunks': {
+          'head': {
+            'entry': 'assets/head_bundle.js',
+            'css': [ 'main.css' ]
+          },
+          'main': {
+            'entry': 'assets/main_bundle.js',
+            'css': []
+          }
+        }
+      },
+      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency'
     })
   ]
 
