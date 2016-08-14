@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head lang="zh-cn">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Button 按钮控件</title>
+    <meta name="renderer" content="webkit">
+    <link href="/static/css/normalize.min.css" rel="stylesheet"/>
+    <link href="/static/css/demo.css" rel="stylesheet"/>
+    <style type="text/css">
+      
+    </style>
+  </head>
+  <body>
+    
+      <div class="example">
+        <div id="app" style="padding-top:20px;">
+  <h2>基本样式</h2>
+  <div class="group">
+    <header class="group-header">默认样式</header>
+    <div class="group-body">
+      <vk-button type="default">default</vk-button>
+      <vk-button type="primary">primary</vk-button>
+      <vk-button type="danger">danger</vk-button>
+    </div>
+  </div>
+  <div class="group">
+    <header class="group-header">幽灵样式</header>
+    <div class="group-body">
+      <vk-button type="default" plain>default</vk-button>
+      <vk-button type="primary" plain>primary</vk-button>
+      <vk-button type="danger" plain>danger</vk-button>
+    </div>
+  </div>
+  <div class="group">
+    <header class="group-header">按钮大小</header>
+    <div class="group-body">
+      <vk-button size="small">small</vk-button>
+      <vk-button size="normal">normal</vk-button>
+      <vk-button size="large">large</vk-button>
+    </div>
+  </div>
+  <div class="group">
+    <header class="group-header">按钮状态</header>
+    <div class="group-body">
+      <vk-button plain>幽灵按钮</vk-button>
+      <vk-button disabled>禁用</vk-button>
+    </div>
+  </div>
+  <div class="group">
+    <header class="group-header">带图标按钮</header>
+    <div class="group-body">
+      <vk-button icon="alarms">按钮1</vk-button>
+      <vk-button icon="balance">按钮2</vk-button>
+      <vk-button icon="box">按钮3</vk-button>
+    </div>
+  </div>
+  <div class="group">
+    <header class="group-header">事件</header>
+    <div class="group-body">
+      <vk-button :on-touch="touch">单击事件</vk-button>
+    </div>
+  </div>
+</div>
+      </div>
+    
+    
+      <script src="../common.js"></script>
+    
+      <script src="button.js"></script>
+    
+  </body>
+</html>

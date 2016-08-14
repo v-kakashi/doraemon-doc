@@ -1,0 +1,32 @@
+body{background: #fafafa;}
+.example{
+  -moz-user-select:none;/*火狐*/
+  -webkit-user-select:none;/*webkit浏览器*/
+  -ms-user-select:none;/*IE10*/
+  -khtml-user-select:none;/*早期浏览器*/
+  user-select:none;
+}
+.example h2{
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #555;
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+.example .group{ margin: 1.875rem 0; }
+.example .group-header { padding: .3125rem .9375rem; color: #6d6d72; font-size: .875rem;}
+.example .group-body { display: block; padding: .9375rem; background: #fff;}
+.example .group-body-icons{ display: flex; font-size: 24px; text-align: center; color: #000;flex-wrap: wrap; }
+.example .icon-cell{ flex:0 0 25%; margin: 8px 0px;}
+.example .icon-text{font-size: 12px;
+  -moz-user-select:initial;/*火狐*/
+  -webkit-user-select:initial;/*webkit浏览器*/
+  -ms-user-select:initial;/*IE10*/
+  -khtml-user-select:initial;/*早期浏览器*/
+  user-select:initial;
+}
+
+.example .vk-icon{color: #000;}

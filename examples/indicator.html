@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Indicator 加载控件</title>
+    <link href="/static/css/normalize.min.css" rel="stylesheet"/>
+    <link href="/static/css/main.css" rel="stylesheet"/>
+    <link href="/static/css/hl.css" rel="stylesheet"/>
+    <style type="text/css">
+      
+    </style>
+    <script src="/static/js/jquery-3.1.0.min.js" charset="UTF-8"></script>
+    <script src="/static/js/handlebars-v4.0.5.js" charset="UTF-8"></script>
+    <script src="/static/js/element.js" charset="UTF-8"></script>
+    <script id="menu-template" type="text/x-handlebars-template">
+      <ul class="ant-menu ant-menu-inline aside-container ant-menu-light ant-menu-root" >
+        {{#each menu}}
+          <li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">
+            <div class="ant-menu-submenu-title">
+              <h4>{{category}}</h4>
+            </div>
+            <ul class="ant-menu ant-menu-inline ant-menu-sub">
+              {{#each items}}
+                {{#if isSelf}}
+                <li class="ant-menu-item ant-menu-item-selected">
+                {{else}}
+                <li class="ant-menu-item ">
+                {{/if}}
+                  <a href="{{url}}"><span>{{title}}</span></a>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/each}}
+      </ul>
+    </script>
+  </head>
+  <body>
+    indicator
+    <header id="header" class="clearfix">
+      <div class="ant-row">
+        <div class="ant-col-4">
+          <i class="nav-phone-icon anticon anticon-menu"></i>
+          <a id="logo" href="/">
+            <img alt="logo" src="../static/img/logo.png">
+            <span>kakashi-ui</span>
+          </a>
+        </div>
+        <div class="nav  ant-col-xs-0 ant-col-sm-17 ant-col-md-18 ant-col-lg-20" style="display: block;">
+          <ul id="nav" class="ant-menu ant-menu-horizontal  ant-menu-light ant-menu-root">
+            <li class="ant-menu-item">
+              <a href="/"><span>首页</span></a>
+            </li>
+            <li class="ant-menu-item-selected ant-menu-item" role="menuitem" aria-selected="true">
+              <a href="/docs/react/introduce"><span>组件</span></a>
+            </li>
+            <li class="ant-menu-item">
+              <a href="https://github.com/v-kakashi/kakashi-ui"><span>GitHub</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="wrapper">
+      <div id="menu" class="demos-anchor menu">
+
+      </div>
+      <div class="wrapper-content">
+        <article>
+          <section class="markdown">
+            <h1>Indicator 加载控件</h1>
+            
+              <h2>说明</h2>
+<h2>代码演示</h2>
+<div class="highlight"><pre><code language=html><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"group"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"group-header"</span>&gt;</span>默认样式<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"group-body group-body-icons"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">vk-indicator</span> <span class="hljs-attr">:visible</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"加载中"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">vk-indicator</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<div class="highlight"><pre><code language=js><span class="hljs-keyword">import</span> vkIndicator <span class="hljs-keyword">from</span> <span class="hljs-string">'kakashi-ui/src/indicator'</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">'kakashi-theme/src/components/indicator.less'</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">'kakashi-theme/src/components/spinner.less'</span>
+
+<span class="hljs-keyword">new</span> Vue({
+  el: <span class="hljs-string">"#app"</span>,
+  components: {
+    vkIndicator
+  }
+})</code></pre></div>
+<h2>vkIcon</h2>
+<table><thead><tr><th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th></tr></thead>
+<tbody><tr><td>value</td>
+<td>图标的图案</td>
+<td>String</td>
+<td>&#39;&#39;</td></tr>
+<tr><td>color</td>
+<td>图标颜色</td>
+<td>String</td>
+<td>&#39;&#39;</td></tr>
+<tr><td>class</td>
+<td>图标的 className</td>
+<td>String</td>
+<td>&#39;&#39;</td></tr></tbody></table>
+            
+        </article>
+        <div class="header">
+          <h1></h1>
+        </div>
+        
+          <div class="example">
+            <div class="phone">
+              <iframe class="example-html demo-page" frameborder="0" src="./indicator-demo.html"> </iframe>
+            </div>
+          </div>
+        
+      </div>
+  </body>
+</html>
