@@ -16,20 +16,28 @@ if (!process.send) {
   start()
 } else {
   var program = require('commander')
+  program
+    .command('install [template]')
+    .action(function (template) {
+      require('../lib/loadDownTemplate')(template)
+    })
 
   program
     .version(require('../package').version, '-v, --version')
+    .command('doc')
     .option('--dest <dir>', 'config path of output dir, default __site', '__site')
     .option('--source <dir>', 'config path of demo files dir, default examples', 'examples')
-    .option('--asset <dir>', 'config path of static resource, default statics', 'static')
-    .option('--tpl <path>', 'config path or name of tpl file', './tpl/element.ejs')
+    .option('--asset <dir>', 'config path of static resource, default statics', './tmp/static')
+    .option('--tpl <path>', 'config path or name of tpl file', './tmp/tpl/element.ejs')
     .option('--config <path>', 'config path of webpack.config, default webpack.config.js', 'webpack.config.js')
     .option('--port <number>', 'specify server port, default 8002', '7788')
     .option('--build', 'only build')
     .option('-w, --watch', 'using with --build, watch mode')
-    .parse(process.argv)
+    .action(function (options) {
+      options.cwd = process.cwd()
+      require('../lib/doc')(options)
+    })
 
-  program.cwd = process.cwd()
-  require('../lib/doc')(program)
+  program.parse(process.argv)
   require('atool-monitor').emit()
 }

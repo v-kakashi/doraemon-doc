@@ -28,7 +28,6 @@ module.exports = function (options) {
   }
 
   let webpackConfig
-
   if (options.build) {
     webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config)
 
