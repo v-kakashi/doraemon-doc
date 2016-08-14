@@ -2,7 +2,7 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import getBabelCommonConfig from './getBabelConfig'
 var utils = require('./utils')
-
+// WEBPACK 的配置文件
 export default function getWebpackCommonConfig (args) {
   const babelQuery = getBabelCommonConfig()
   return {

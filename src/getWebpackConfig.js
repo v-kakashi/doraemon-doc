@@ -3,7 +3,8 @@ import getWebpackLoaderConfig from './getWebpackLoaderConfig'
 import webpack, { ProgressPlugin } from 'webpack'
 import glob from 'glob'
 import Copy from 'copy-webpack-plugin'
-import Index from './index-webpack-plugin'
+// import Index from './index-webpack-plugin'
+import Menu from './menus-webpack-plugin'
 
 const root = path.join(__dirname, '..')
 
@@ -33,9 +34,7 @@ const getEntry = function (source) {
 
 export default function (source, asset, dest, cwd, tpl, config) {
   const pkg = require(join(cwd, 'package.json'))
-
   const webpackConfig = getWebpackLoaderConfig({ cwd, devtool: '#inline-cheap-module-source-map' })
-
   const entry = getEntry(source)
   webpackConfig.entry = entry
   webpackConfig.output = {
@@ -48,11 +47,11 @@ export default function (source, asset, dest, cwd, tpl, config) {
   webpackConfig.resolve = {
     root: cwd,
     alias: {
-      [`${pkg.name}$`]: join(cwd, 'index.js'),
+      // [`${pkg.name}$`]: join(cwd, 'index.js'),
       [pkg.name]: cwd
     },
     modulesDirectories: ['node_modules', join(__dirname, '../node_modules'), join(root, 'node_modules')],
-    extensions: ['', '.web.js', '.js', '.vue']
+    extensions: ['', '.web.js', '.js', '.vue', '.md']
   }
 
   webpackConfig.resolveLoader = {
@@ -80,19 +79,16 @@ export default function (source, asset, dest, cwd, tpl, config) {
   webpackConfig.module.preLoaders = webpackConfig.module.preLoaders || []
   webpackConfig.module.preLoaders.push({
     test: /\.md$/,
-    loader: `babel?${JSON.stringify(webpackConfig.babel)}!atool-doc-md-loader?template=${tpl}`,
+    loader: `babel?${JSON.stringify(webpackConfig.babel)}!vkakashi-doc-md-load?template=${tpl}`,
     include: path.join(cwd, source)
+    // include: path.join(cwd, './app')
   })
 
   webpackConfig.module.preLoaders.push({
-    test: /\.(vue|js)$/,
+    test: /\.(js|vue)$/,
     loader: `babel?${JSON.stringify(webpackConfig.babel)}!atool-doc-js-loader?template=${tpl}`,
     include: path.join(cwd, source)
-  })
-
-  const link = {}
-  Object.keys(entry).forEach(key => {
-    link[path.relative(source, key)] = key
+    // include: path.join(cwd, './app')
   })
 
   webpackConfig.plugins = [
@@ -109,10 +105,9 @@ export default function (source, asset, dest, cwd, tpl, config) {
     new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
     new webpack.optimize.OccurenceOrderPlugin(),
     new Copy([{ from: asset, to: asset }]),
-    new Index({
-      params: {
-        link
-      }
+    new Menu({
+      entry,
+      output: './menu.json'
     })
   ]
 

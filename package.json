@@ -1,7 +1,7 @@
 {
   "name": "kakashi-doc",
-  "version": "1.0.4",
-  "description": "一款文档生成器",
+  "version": "1.1.0",
+  "description": "一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。",
   "main": "./bin/kakashi-doc.js",
   "directories": {
     "example": "examples"
@@ -10,19 +10,17 @@
     "kakashi-doc": "./bin/kakashi-doc.js"
   },
   "scripts": {
-    "rebuild": "npm run build && lessc ./static/less/style.less ./static/css/main.css && node ./bin/kakashi-doc.js",
     "prepublish": "npm run build",
     "start": "concurrently 'npm run dev' 'npm run doc'",
-    "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
-    "dev": "./node_modules/.bin/babel src -s --out-dir lib --watch --ignore __tests__",
-    "doc": "node bin/atool-doc.js --port 8987",
+    "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib",
+    "dev": "./node_modules/.bin/babel src -s --out-dir lib --watch",
+    "doc": "npm run build && node ./bin/kakashi-doc.js",
     "lint": "eslint src",
     "eslint-fix": "eslint --fix src",
-    "gh-pages": "npm run doc -- --build && gh-pages -d __site",
+    "gh-pages": "npm run debug -- --build && gh-pages -d __site",
     "pub": "npm run build && npm publish && npm run gh-pages",
     "beta": "npm run build && npm publish --tag beta && npm run gh-pages",
-    "test": "npm run lint",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -43,7 +41,6 @@
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "webpack": "~1.12.2",
-    "dora": "~0.3.0",
     "less": "^2.7.1",
     "atool-doc-js-loader": "~0.1.0",
     "atool-doc-md-loader": "~0.2.0",
@@ -61,7 +58,6 @@
     "chokidar": "~1.5.1",
     "commander": "~2.9.0",
     "copy-webpack-plugin": "^3.0.1",
-    "dora-plugin-proxy": "~0.6.1",
     "ejs": "^2.4.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "glob": "~7.0.3",
@@ -74,6 +70,8 @@
   },
   "devDependencies": {
     "concurrently": "^2.1.0",
+    "dora": "^0.4.3",
+    "dora-plugin-proxy": "^0.8.0",
     "eslint": "^2.0.0",
     "eslint-config-airbnb": "^7.0.0",
     "eslint-config-standard": "^5.3.1",
@@ -84,7 +82,8 @@
     "eslint-plugin-standard": "^1.3.2",
     "gh-pages": "~0.11.0",
     "isomorphic-fetch": "~2.2.1",
-    "pre-commit": "~1.1.2"
+    "pre-commit": "~1.1.2",
+    "vkakashi-doc-md-load": "^1.0.0"
   },
   "babel": {
     "presets": [

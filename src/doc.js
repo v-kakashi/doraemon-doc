@@ -10,7 +10,6 @@ const root = join(__dirname, '..')
 
 module.exports = function (options) {
   const { source, dest, cwd, tpl, config, port, asset } = options
-
   const tplDefault = join(root, tplSet.github)
   let tplPath
 
@@ -53,7 +52,6 @@ module.exports = function (options) {
       port,
       resolveDir: join(root, 'node_modules'),
       plugins: [
-        'proxy',
         {
           'middleware.before' () {
             webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config)
@@ -73,7 +71,7 @@ module.exports = function (options) {
             })
           },
           'server.after' () {
-            chokidar.watch([`${source}/**/*.md`, `${source}/**/*.js`, `${source}/**/*.jsx`], {
+            chokidar.watch([`${source}/**/*.md`, `${source}/**/*.js`], {
               ignored: /node_modules/,
               ignoreInitial: true
             }).on('add', path => {

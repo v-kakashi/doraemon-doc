@@ -1,11 +1,14 @@
-# kakashi-doc
+---
+category: 说明
+title: 工具安装
+---
+---
 
 ## 说明
 
 一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。
 
 *** 基于 ant 的文档生成器上做了改造，使其支持手机例子的显示和 VUE 代码的识别 ***
-
 
 ## 特点
 1. 在 markdown 文件中编写 HTML、JS、VUE、CSS 代码，并且编译成网站。
