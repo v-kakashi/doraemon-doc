@@ -8,8 +8,6 @@ title: 工具安装
 
 一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。
 
-*** 基于 ant 的文档生成器上做了改造，使其支持手机例子的显示和 VUE 代码的识别 ***
-
 ## 特点
 1. 在 markdown 文件中编写 HTML、JS、VUE、CSS 代码，并且编译成网站。
 2. 将 markdown 文件中的代码生成 demo 网页
@@ -37,12 +35,13 @@ title: 工具安装
 
     -h, --help       显示使用信息
     -v, --version    工具的版本号
-    --dest <dir>     配置输出网站的目录, 默认 __site 目录
+    --dest <dir>     输出网站的目录, 默认 __site 目录
     --source <dir>   配置文档源目录, 默认 examples 目录
-    --asset <dir>    配置表态资源文件目录, 默认 statics 目录
+    --asset <dir>    配置静态资源文件目录, 默认 statics 目录
     --tpl <path>     配置显示模板文件
     --port <number>  网站的端口号, 默认 8002
     --build          生成网站
+    --index <path>   自定义首页地址, 默认 ./examples/install.html
     -w, --watch      已监听模式启动 --build 命令
 ```
 

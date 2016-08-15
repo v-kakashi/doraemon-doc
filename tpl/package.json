@@ -1,0 +1,20 @@
+{
+  "name": "kakashi-doc-templates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lmm0591@qq.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v-kakashi/kakashi-doc-templates.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/v-kakashi/kakashi-doc-templates/issues"
+  },
+  "homepage": "https://github.com/v-kakashi/kakashi-doc-templates#readme"
+}

@@ -9,7 +9,7 @@ import chokidar from 'chokidar'
 const root = join(__dirname, '..')
 
 module.exports = function (options) {
-  const { source, dest, cwd, tpl, config, port, asset } = options
+  const { source, dest, cwd, tpl, config, port, asset, index } = options
   const tplDefault = join(root, tplSet.github)
   let tplPath
 
@@ -29,7 +29,7 @@ module.exports = function (options) {
 
   let webpackConfig
   if (options.build) {
-    webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config)
+    webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config, index)
 
     const compiler = webpack(webpackConfig)
 
@@ -53,7 +53,8 @@ module.exports = function (options) {
       plugins: [
         {
           'middleware.before' () {
-            webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config)
+            console.log(index)
+            webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config, index)
           },
           'middleware' () {
             const compiler = webpack(webpackConfig)

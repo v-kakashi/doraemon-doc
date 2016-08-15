@@ -1,0 +1,147 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+  line-height: 1.5;
+  color: #666;
+  font-size: 14px;
+  background: #FFF;
+  transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  overflow-x: hidden;
+}
+a {
+  transition: color .3s ease;
+}
+.aside-container {
+  padding-bottom: 50px;
+}
+.aside-container.ant-menu-inline .ant-menu-submenu-title h4,
+.aside-container.ant-menu-inline > .ant-menu-item,
+.aside-container.ant-menu-inline .ant-menu-item a {
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.aside-container a[disabled] {
+  color: #ccc;
+}
+.aside-container .chinese {
+  font-size: 12px;
+  margin-left: 6px;
+  font-weight: normal;
+  opacity: .67;
+}
+#header {
+  transition: opacity 0.5s;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  height: 80px;
+  margin-bottom: 24px;
+  padding: 0 4%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+#logo {
+  float: left;
+  height: 80px;
+  line-height: 80px;
+}
+#logo img {
+  height: 40px;
+  line-height: 80px;
+  width: 40px;
+  margin-right: 12px;
+  margin-top: 20px;
+}
+#logo span {
+  float: right;
+  font-size: 16px;
+  font-family: 'Raleway', 'Hiragino Sans GB', sans-serif;
+  height: 80px;
+  line-height: 80px;
+  text-transform: uppercase;
+}
+#nav {
+  border: 0;
+  float: right;
+  font-size: 14px;
+}
+#nav li {
+  height: 80px;
+  line-height: 80px;
+  min-width: 72px;
+  text-align: center;
+  border-bottom-width: 3px;
+}
+#nav li.ant-menu-item-selected a {
+  color: #2db7f5;
+  font-weight: bold;
+}
+.markdown {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.ant-carousel .slick-slider img {
+  display: inline;
+  max-width: 100%;
+}
+.demos-anchor {
+  color: #aaa;
+  background: #fff;
+  font-size: 12px;
+  margin-top: 0;
+}
+.demos-anchor a {
+  padding-left: 8px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 190px;
+}
+.wrapper {
+  margin-left: 7%;
+  padding-bottom: 30px;
+  margin-top: 100px;
+}
+
+.wrapper-content {
+  padding: 0 460px 0 200px;
+}
+
+.example {
+  padding: 20px 0;
+  position: fixed;
+  right: 20px;
+  z-index: 1000;
+  top: 100px;
+}
+
+.demos-anchor {
+  max-width: 230px;
+  max-height: 90%;
+  width: calc(100% + 10px);
+  left: 20px;
+  position: fixed;
+  color: #aaa;
+  padding: 0;
+  z-index: 100;
+  overflow-y: auto;
+}
+.phone{
+    margin: 0px 20px 0;
+    background-image: url(/tmp/static/img/phone.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 900px;
+    padding: 100px 16px;
+    box-sizing: border-box;
+    width: 365px;
+}
+.demo-page {
+  width: 100%;
+  height: 580px;
+  background-color: #fff;
+  overflow-y: auto;
+}

@@ -5,6 +5,7 @@ import glob from 'glob'
 import Copy from 'copy-webpack-plugin'
 // import Index from './index-webpack-plugin'
 import Menu from './menus-webpack-plugin'
+import Index from './index-webpack-plugin'
 
 const root = path.join(__dirname, '..')
 
@@ -32,7 +33,8 @@ const getEntry = function (source) {
   return entry
 }
 
-export default function (source, asset, dest, cwd, tpl, config) {
+export default function (source, asset, dest, cwd, tpl, config, indexHtml) {
+  console.log(indexHtml)
   const pkg = require(join(cwd, 'package.json'))
   const webpackConfig = getWebpackLoaderConfig({ cwd, devtool: '#inline-cheap-module-source-map' })
   const entry = getEntry(source)
@@ -105,6 +107,7 @@ export default function (source, asset, dest, cwd, tpl, config) {
     new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
     new webpack.optimize.OccurenceOrderPlugin(),
     new Copy([{ from: asset, to: asset }]),
+    new Index({ indexHtml }),
     new Menu({
       entry,
       output: './menu.json'
