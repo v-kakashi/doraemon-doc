@@ -47,7 +47,7 @@ function checkDistBranch (template, cb) {
  */
 
 function downloadAndGenerate (template) {
-  var tmp = './tmp'
+  var tmp = './tpl'
   var spinner = ora('正在下载...')
   spinner.start()
   rm.sync(tmp)
