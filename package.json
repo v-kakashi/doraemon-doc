@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/v-kakashi/kakashi-doc#readme",
   "dependencies": {
+    "download-git-repo": "~0.1.2",
     "atool-doc-js-loader": "~0.1.0",
     "atool-doc-util": "~0.1.0",
     "atool-monitor": "0.x",
