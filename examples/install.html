@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>工具安装</title>
-    <link href="/static/css/normalize.min.css" rel="stylesheet"/>
-    <link href="/static/css/main.css" rel="stylesheet"/>
-    <link href="/static/css/hl.css" rel="stylesheet"/>
+    <link href="/tpl/static/css/normalize.min.css" rel="stylesheet"/>
+    <link href="/tpl/static/css/main.css" rel="stylesheet"/>
+    <link href="/tpl/static/css/hl.css" rel="stylesheet"/>
     <style type="text/css">
       
     </style>
-    <script src="/static/js/jquery-3.1.0.min.js" charset="UTF-8"></script>
-    <script src="/static/js/handlebars-v4.0.5.js" charset="UTF-8"></script>
-    <script src="/static/js/element.js" charset="UTF-8"></script>
+    <script src="/tpl/static/js/jquery-3.1.0.min.js" charset="UTF-8"></script>
+    <script src="/tpl/static/js/handlebars-v4.0.5.js" charset="UTF-8"></script>
+    <script src="/tpl/static/js/element.js" charset="UTF-8"></script>
     <script id="menu-template" type="text/x-handlebars-template">
       <ul class="ant-menu ant-menu-inline aside-container ant-menu-light ant-menu-root" >
         {{#each menu}}
@@ -43,7 +43,7 @@
         <div class="ant-col-4">
           <i class="nav-phone-icon anticon anticon-menu"></i>
           <a id="logo" href="/">
-            <img alt="logo" src="../static/img/logo.png">
+            <img alt="logo" src="../../tpl/static/img/logo.png" />
             <span>kakashi-ui</span>
           </a>
         </div>
@@ -74,7 +74,6 @@
               <hr></hr>
 <h2>说明</h2>
 <p>一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。</p>
-<p><strong><em> 基于 ant 的文档生成器上做了改造，使其支持手机例子的显示和 VUE 代码的识别 </em></strong></p>
 <h2>特点</h2>
 <ol><li>在 markdown 文件中编写 HTML、JS、VUE、CSS 代码，并且编译成网站。</li>
 <li>将 markdown 文件中的代码生成 demo 网页</li>
@@ -82,51 +81,67 @@
 <h2>安装</h2>
 <div class="highlight"><pre><code language=bash>  npm install kakashi-doc -g</code></pre></div>
 <h2>使用</h2>
-<div class="highlight"><pre><code language=bash>  kakashi-doc</code></pre></div>
-<h3>命令说明</h3>
-<div class="highlight"><pre><code language=bash>  kakashi-doc          生成 demo(http://127.0.0.1:8002)
+<h3>安装模板</h3>
+<div class="highlight"><pre><code language=bash>  kakashi-doc install</code></pre></div>
+<p><a href="https://github.com/v-kakashi/kakashi-doc-template">kakashi-doc-template</a> 为文档生成器推荐显示模板，用户也可以自定义皮肤(目前只支持默认模板)</p>
+<h3>生成网站</h3>
+<p>在创建 <code>/examples/install.md</code> 文件内容如下：</p>
+<div class="highlight"><pre><code language=yaml><span class="hljs-meta">---</span>
+<span class="hljs-attr">category:</span> 说明
+<span class="hljs-attr">title:</span> 工具安装
+<span class="hljs-meta">---</span>
 
-  kakashi-doc [options]
+<span class="hljs-comment">## 说明</span>
+
+一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。</code></pre></div>
+<p>运行如下命令</p>
+<div class="highlight"><pre><code language=bash>  kakashi-doc doc --index</code></pre></div>
+<h3>命令说明</h3>
+<div class="highlight"><pre><code language=bash>  kakashi-doc instal &lt;template&gt; 项目初始下载显示模板, 默认 kakashi-doc-template
+
+  kakashi-doc doc    生成演示网站(http://127.0.0.1:8002)
+
+  kakashi-doc doc [options]
 
     -h, --help       显示使用信息
     -v, --version    工具的版本号
-    --dest &lt;dir&gt;     配置输出网站的目录, 默认 __site 目录
+    --dest &lt;dir&gt;     输出网站的目录, 默认 __site 目录
     --source &lt;dir&gt;   配置文档源目录, 默认 examples 目录
-    --asset &lt;dir&gt;    配置表态资源文件目录, 默认 statics 目录
+    --asset &lt;dir&gt;    配置静态资源文件目录, 默认 statics 目录
     --tpl &lt;path&gt;     配置显示模板文件
     --port &lt;number&gt;  网站的端口号, 默认 8002
     --build          生成网站
+    --index &lt;path&gt;   自定义首页地址, 默认 ./examples/install.html
     -w, --watch      已监听模式启动 --build 命令</code></pre></div>
-<h3>命令使用</h3>
-<div class="highlight"><pre><code language=bash>kakashi-doc --build</code></pre></div>
-<p><strong>before</strong></p>
+<h3>目录变化</h3>
+<p><strong>编译前</strong></p>
 <div class="highlight"><pre><code language=stylus>./
 ├── README<span class="hljs-selector-class">.md</span>
-├── examples
-│   ├── <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.js</span>
-│   ├── <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.html</span>
+└── examples
+│   ├── <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.md</span>
 │   └── <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.md</span>
-└── statics
-    └── data.json</code></pre></div>
-<p><strong>after</strong></p>
+└── tpl
+    └── static
+        └── data.json</code></pre></div>
+<p><strong>编译后</strong></p>
 <div class="highlight"><pre><code language=stylus>./
 ├── README<span class="hljs-selector-class">.md</span>
 ├── __site
 │   ├── common<span class="hljs-selector-class">.js</span>
 │   ├── examples
 │   │   ├── <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.html</span>
-│   │   ├── <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.js</span>
+│   │   ├── a-demo<span class="hljs-selector-class">.html</span>
 │   │   ├── <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.html</span>
-│   │   ├── <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.js</span>
+│   │   ├── b-demo<span class="hljs-selector-class">.html</span>
 │   ├── index<span class="hljs-selector-class">.html</span>
 │   └── statics
 │       └── data<span class="hljs-selector-class">.json</span>
-└── examples
-    ├── <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.js</span>
-    ├── <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.html</span>
-    └── <span class="hljs-selector-tag">b</span>.md</code></pre></div>
-<h2>Demos</h2>
-<p>访问 <a href="https://github.com/v-kakashi/kakashi-ui">https://github.com/v-kakashi/kakashi-ui</a></p>
+├── examples
+│   ├── <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.md</span>
+│   └── <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.md</span>
+└── tpl
+    └── static
+        └── data.json</code></pre></div>
             
         </article>
         <div class="header">

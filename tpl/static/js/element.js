@@ -22,7 +22,6 @@ $(function ready () {
     dataList.forEach(function (data) {
       menuMap[data.category] || (menuMap[data.category] = { category: data.category, items: [] })
       menuMap[data.category].items.push(data)
-      console.log(data)
       if (new RegExp(data.url, 'i').test(href)) {
         data.url = '#'
         data.isSelf = true
@@ -32,10 +31,8 @@ $(function ready () {
     })
     menu.push(menuMap['说明'])
     menu.push(menuMap['组件'])
-    console.log(menu)
     var template = Handlebars.compile($('#menu-template').html())
     var html = template({ 'menu': menu })
-    console.log(html)
 
     $('#menu').append(html)
   })
