@@ -53,7 +53,6 @@ module.exports = function (options) {
       plugins: [
         {
           'middleware.before' () {
-            console.log(index)
             webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config, index)
           },
           'middleware' () {

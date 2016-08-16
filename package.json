@@ -1,6 +1,6 @@
 {
   "name": "kakashi-doc",
-  "version": "1.1.4",
+  "version": "1.1.7",
   "description": "一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。",
   "main": "./bin/kakashi-doc.js",
   "directories": {
@@ -18,7 +18,7 @@
     "dist": "npm run build && node ./bin/kakashi-doc.js doc --build",
     "lint": "eslint src",
     "eslint-fix": "eslint --fix src",
-    "gh-pages": "npm run build -- build && gh-pages -d __site",
+    "gh-pages": "npm run dist && gh-pages -d __site",
     "pub": "npm run build && npm publish && npm run gh-pages",
     "beta": "npm run build && npm publish --tag beta && npm run gh-pages",
     "test": "npm run lint"
@@ -62,7 +62,7 @@
     "raw-loader": "^0.5.1",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
-    "vkakashi-doc-md-load": "^1.0.0",
+    "kakashi-doc-md-load": "^1.0.0",
     "vue": "^1.0.25",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",

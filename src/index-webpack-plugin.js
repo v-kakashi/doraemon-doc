@@ -10,7 +10,6 @@ function addContentToAssets (content, filename, compilation) {
 }
 
 export default function IndexWebpackPlugin (options) {
-  console.log(options)
   const { file, template, indexHtml } = {
     template: 'tpl/html/index.ejs',
     file: 'index.html',

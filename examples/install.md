@@ -21,17 +21,42 @@ title: 工具安装
 
 ## 使用
 
+### 安装模板
 ```bash
-  kakashi-doc
+  kakashi-doc install
 ```
+[kakashi-doc-template](https://github.com/v-kakashi/kakashi-doc-template) 为文档生成器推荐显示模板，用户也可以自定义皮肤(目前只支持默认模板)
+
+### 生成网站
+
+在创建 `/examples/install.md` 文件内容如下：
+
+```
+---
+category: 说明
+title: 工具安装
+---
+
+## 说明
+
+一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。
+```
+
+运行如下命令
+
+```bash
+  kakashi-doc doc --index
+```
+
 
 ### 命令说明
 
-
 ```bash
-  kakashi-doc          生成 demo(http://127.0.0.1:8002)
+  kakashi-doc instal <template> 项目初始下载显示模板, 默认 kakashi-doc-template
 
-  kakashi-doc [options]
+  kakashi-doc doc    生成演示网站(http://127.0.0.1:8002)
+
+  kakashi-doc doc [options]
 
     -h, --help       显示使用信息
     -v, --version    工具的版本号
@@ -45,25 +70,21 @@ title: 工具安装
     -w, --watch      已监听模式启动 --build 命令
 ```
 
-### 命令使用
+### 目录变化
 
-```bash
-kakashi-doc --build
-```
-
-**before**
+**编译前**
 ```
 ./
 ├── README.md
-├── examples
-│   ├── a.js
-│   ├── a.html
+└── examples
+│   ├── a.md
 │   └── b.md
-└── statics
-    └── data.json
+└── tpl
+    └── static
+        └── data.json
 ```
 
-**after**
+**编译后**
 ```
 ./
 ├── README.md
@@ -71,18 +92,16 @@ kakashi-doc --build
 │   ├── common.js
 │   ├── examples
 │   │   ├── a.html
-│   │   ├── a.js
+│   │   ├── a-demo.html
 │   │   ├── b.html
-│   │   ├── b.js
+│   │   ├── b-demo.html
 │   ├── index.html
 │   └── statics
 │       └── data.json
-└── examples
-    ├── a.js
-    ├── a.html
-    └── b.md
+├── examples
+│   ├── a.md
+│   └── b.md
+└── tpl
+    └── static
+        └── data.json
 ```
-
-## Demos
-
-访问 https://github.com/v-kakashi/kakashi-ui

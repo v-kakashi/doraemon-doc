@@ -16,7 +16,7 @@ export default function MenusWebpackPlugin (options) {
       Object.keys(options.entry).forEach(key => {
         var content = readFileSync(options.entry[key], 'utf-8')
         var mate = MT(content).meta
-        mate.url = `/${key}.html`
+        mate.url = `../${key}.html`
         navs.push(mate)
       })
       addContentToAssets(JSON.stringify(navs), options.output, compilation)

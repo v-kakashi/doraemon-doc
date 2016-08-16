@@ -12,9 +12,9 @@ title: Indicator 加载控件
 ```html
 <div id="app">
   <div class="group">
-    <header class="group-header">默认样式</header>
     <div class="group-body group-body-icons">
-      <vk-indicator :visible="true" text="加载中"></vk-indicator>
+      <vk-button @click="handleClick">显示</vk-button>
+      <vk-indicator :visible="isShow" text="加载中"></vk-indicator>
     </div>
   </div>
 </div>
@@ -23,23 +23,40 @@ title: Indicator 加载控件
 
 ```js
 import vkIndicator from 'kakashi-ui/src/indicator'
+import vkButton from 'kakashi-ui/src/Button'
 import Vue from 'vue'
 
 import 'kakashi-theme/src/components/indicator.less'
 import 'kakashi-theme/src/components/spinner.less'
+import 'kakashi-theme/src/components/button.less'
 
 new Vue({
   el: "#app",
+  data () {
+    return {
+      isShow: false
+    }
+  },
+  methods: {
+    handleClick ($event) {
+      this.isShow = true
+      setTimeout(() => {
+        this.isShow = false
+      }, 5000);
+    }
+  },
   components: {
-    vkIndicator
+    vkIndicator,
+    vkButton
   }
 })
+
+
 ```
 
-## vkIcon
+## Props
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|-------|
-| value | 图标的图案 | String  | ''    |
-| color | 图标颜色 | String | '' |
-| class | 图标的 className | String | '' |
+| text | 加载文字 | String  | ''    |
+| visible | 是否显示 | Boolean  | false |

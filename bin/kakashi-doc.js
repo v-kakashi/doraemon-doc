@@ -17,7 +17,7 @@ if (!process.send) {
 } else {
   var program = require('commander')
   program
-    .command('install [template]')
+    .command('install [template]', '安装显示模板', '')
     .action(function (template) {
       require('../lib/loadDownTemplate')(template)
     })
