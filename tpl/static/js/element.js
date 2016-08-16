@@ -1,5 +1,5 @@
 $(function ready () {
-  $.get('/menu.json', function (dataList) {
+  $.get('../menu.json', function (dataList) {
     /*
     <ul class="ant-menu ant-menu-inline aside-container ant-menu-light ant-menu-root" >
       <li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">
