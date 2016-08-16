@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Indicator 加载控件</title>
+    <title>Toast 提示框</title>
     <meta name="renderer" content="webkit">
     <link href="../tpl/static/css/normalize.min.css" rel="stylesheet"/>
     <link href="../tpl/static/css/demo.css" rel="stylesheet"/>
@@ -18,11 +18,9 @@
     
       <div class="example">
         <div id="app">
-  <div class="group">
-    <div class="group-body group-body-icons">
-      <vk-button @click="handleClick">显示</vk-button>
-      <vk-indicator :visible="isShow" text="加载中"></vk-indicator>
-    </div>
+  <div class="group-body">
+    <vk-button type="primary" @click="showToast">弹出 Toast</vk-button><br />
+    <vk-button type="primary" @click="showIconToast">带有 Icon 的 Toast</vk-button><br />
   </div>
 </div>
       </div>
@@ -30,7 +28,7 @@
     
       <script src="../common.js"></script>
     
-      <script src="indicator.js"></script>
+      <script src="toast.js"></script>
     
   </body>
 </html>

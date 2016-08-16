@@ -131,7 +131,7 @@ a {
 }
 .phone{
     margin: 0px 20px 0;
-    background-image: url(/tpl/static/img/phone.png);
+    background-image: url(../../../tpl/static/img/phone.png);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 900px;
