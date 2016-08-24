@@ -52,7 +52,7 @@ title: 工具安装
 ### 命令说明
 
 ```bash
-  kakashi-doc instal <template> 项目初始下载显示模板, 默认 kakashi-doc-template
+  kakashi-doc install <template> 项目初始下载显示模板, 默认 kakashi-doc-template
 
   kakashi-doc doc    生成演示网站(http://127.0.0.1:8002)
 

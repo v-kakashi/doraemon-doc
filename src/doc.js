@@ -9,7 +9,7 @@ import chokidar from 'chokidar'
 const root = join(__dirname, '..')
 
 module.exports = function (options) {
-  const { source, dest, cwd, tpl, config, port, asset, index } = options
+  const { source, dest, cwd, tpl, config, port, asset, index, init, publicPath } = options
   const tplDefault = join(root, tplSet.github)
   let tplPath
 
@@ -27,9 +27,13 @@ module.exports = function (options) {
     tplPath = tplDefault
   }
 
+  if (init) { // 初始化项目
+
+  }
+
   let webpackConfig
   if (options.build) {
-    webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config, index)
+    webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config, index, publicPath)
 
     const compiler = webpack(webpackConfig)
 
@@ -53,7 +57,7 @@ module.exports = function (options) {
       plugins: [
         {
           'middleware.before' () {
-            webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config, index)
+            webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config, index, publicPath)
           },
           'middleware' () {
             const compiler = webpack(webpackConfig)

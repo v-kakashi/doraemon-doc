@@ -7,7 +7,7 @@ import Copy from 'copy-webpack-plugin'
 import Menu from './menus-webpack-plugin'
 import Index from './index-webpack-plugin'
 
-const root = path.join(__dirname, '..')
+const root = path.join(__dirname, '../')
 
 const getDemoFiles = function (dir) {
   return glob.sync(join(dir, '**/*.{js,vue,html,md}'))
@@ -33,7 +33,7 @@ const getEntry = function (source) {
   return entry
 }
 
-export default function (source, asset, dest, cwd, tpl, config, indexHtml) {
+export default function (source, asset, dest, cwd, tpl, config, indexHtml, publicPath) {
   const pkg = require(join(cwd, 'package.json'))
   const webpackConfig = getWebpackLoaderConfig({ cwd, devtool: '#inline-cheap-module-source-map' })
   const entry = getEntry(source)
@@ -108,6 +108,7 @@ export default function (source, asset, dest, cwd, tpl, config, indexHtml) {
     new Copy([{ from: asset, to: asset }]),
     new Index({ indexHtml }),
     new Menu({
+      publicPath,
       entry,
       output: './menu.json'
     })

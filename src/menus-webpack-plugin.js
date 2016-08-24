@@ -13,10 +13,12 @@ export default function MenusWebpackPlugin (options) {
   const apply = compiler => {
     compiler.plugin('emit', (compilation, cb) => {
       var navs = []
+      // console.log(path.relative(resourcePath,resource.demoPath))
       Object.keys(options.entry).forEach(key => {
         var content = readFileSync(options.entry[key], 'utf-8')
         var mate = MT(content).meta
-        mate.url = `../${key}.html`
+        options.publicPath === '/' && (options.publicPath = '')
+        mate.url = `${options.publicPath}/${key}.html`
         navs.push(mate)
       })
       addContentToAssets(JSON.stringify(navs), options.output, compilation)
