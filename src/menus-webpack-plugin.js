@@ -11,7 +11,6 @@ function addContentToAssets (content, filename, compilation) {
 }
 
 export default function MenusWebpackPlugin (options) {
-
   const apply = compiler => {
     compiler.plugin('emit', (compilation, cb) => {
       var navs = []
