@@ -1,6 +1,6 @@
 ---
 category: 组件
-title: Msgbox 对话框组件
+title: 对话框2
 ---
 
 

@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs'
 import MT from 'mark-twain'
+import path from 'path'
 
 function addContentToAssets (content, filename, compilation) {
   /* eslint-disable no-param-reassign */
@@ -10,6 +11,7 @@ function addContentToAssets (content, filename, compilation) {
 }
 
 export default function MenusWebpackPlugin (options) {
+
   const apply = compiler => {
     compiler.plugin('emit', (compilation, cb) => {
       var navs = []
@@ -17,6 +19,7 @@ export default function MenusWebpackPlugin (options) {
       Object.keys(options.entry).forEach(key => {
         var content = readFileSync(options.entry[key], 'utf-8')
         var mate = MT(content).meta
+        mate.type = path.relative(options.source, path.dirname(key)) // 已文件路径区别不同类型的组件
         options.publicPath === '/' && (options.publicPath = '')
         mate.url = `${options.publicPath}/${key}.html`
         navs.push(mate)

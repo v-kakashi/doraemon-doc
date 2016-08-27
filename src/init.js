@@ -1,7 +1,7 @@
 import { existsSync } from 'fs'
 import { join } from 'path'
 import copydir from 'copy-dir'
-import inquirer from 'inquirer'
+// import inquirer from 'inquirer'
 
 module.exports = function (path) {
   if (existsSync(path)) {
