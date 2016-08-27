@@ -17,9 +17,10 @@ if (!process.send) {
 } else {
   var program = require('commander')
   program
-    .command('install [template]', '安装显示模板', 'kakashi-doc-template')
-    .action(function (template) {
-      require('../lib/loadDownTemplate')(template)
+    .command('install')
+    .option('--tpl <path>', '文档模板', 'kakashi-doc-template')
+    .action(function (options) {
+      require('../lib/loadDownTemplate')(options.tpl)
     })
 
   program
