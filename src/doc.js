@@ -35,6 +35,14 @@ module.exports = function (options) {
   if (options.build) {
     webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config, index, publicPath)
 
+    webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        unused: true,
+        dead_code: true,
+        warnings: false
+      }
+    }))
+
     const compiler = webpack(webpackConfig)
 
     if (options.watch) {

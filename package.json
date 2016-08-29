@@ -1,6 +1,6 @@
 {
   "name": "kakashi-doc",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "description": "一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。",
   "main": "./bin/kakashi-doc.js",
   "directories": {
