@@ -33,7 +33,7 @@ const getEntry = function (source) {
   return entry
 }
 
-export default function (source, asset, dest, cwd, tpl, config, indexHtml, publicPath) {
+export default function (source, asset, dest, cwd, tpl, config, indexHtml, publicPath, duoshuoName) {
   const pkg = require(join(cwd, 'package.json'))
   var theme = 'default'
   const webpackConfig = getWebpackLoaderConfig({ cwd, devtool: '#inline-cheap-module-source-map', theme })
@@ -81,7 +81,7 @@ export default function (source, asset, dest, cwd, tpl, config, indexHtml, publi
   webpackConfig.module.preLoaders = webpackConfig.module.preLoaders || []
   webpackConfig.module.preLoaders.push({
     test: /\.md$/,
-    loader: `babel?${JSON.stringify(webpackConfig.babel)}!kakashi-md-loader?template=${tpl}&publicPath=${publicPath}`,
+    loader: `babel?${JSON.stringify(webpackConfig.babel)}!kakashi-md-loader?template=${tpl}&publicPath=${publicPath}&duoshuoName=${duoshuoName}`,
     include: path.join(cwd, source)
     // include: path.join(cwd, './app')
   })

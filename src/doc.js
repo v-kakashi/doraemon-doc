@@ -9,7 +9,7 @@ import chokidar from 'chokidar'
 const root = join(__dirname, '..')
 
 module.exports = function (options) {
-  const { source, dest, cwd, tpl, config, port, asset, index, init, publicPath } = options
+  const { source, dest, cwd, tpl, config, port, asset, index, init, publicPath, duoshuoName } = options
   const tplDefault = join(root, tplSet.github)
   let tplPath
 
@@ -33,7 +33,7 @@ module.exports = function (options) {
 
   let webpackConfig
   if (options.build) {
-    webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config, index, publicPath)
+    webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config, index, publicPath, duoshuoName)
 
     webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -65,7 +65,7 @@ module.exports = function (options) {
       plugins: [
         {
           'middleware.before' () {
-            webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config, index, publicPath)
+            webpackConfig = getWebpackConfig(source, asset, dest, cwd, tplPath, config, index, publicPath, duoshuoName)
           },
           'middleware' () {
             const compiler = webpack(webpackConfig)
