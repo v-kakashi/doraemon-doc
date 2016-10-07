@@ -35,7 +35,8 @@ const getEntry = function (source) {
 
 export default function (source, asset, dest, cwd, tpl, config, indexHtml, publicPath) {
   const pkg = require(join(cwd, 'package.json'))
-  const webpackConfig = getWebpackLoaderConfig({ cwd, devtool: '#inline-cheap-module-source-map' })
+  var theme = 'default'
+  const webpackConfig = getWebpackLoaderConfig({ cwd, devtool: '#inline-cheap-module-source-map', theme })
   const entry = getEntry(source)
   webpackConfig.entry = entry
   webpackConfig.output = {
