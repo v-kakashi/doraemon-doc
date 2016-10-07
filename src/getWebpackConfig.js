@@ -81,7 +81,7 @@ export default function (source, asset, dest, cwd, tpl, config, indexHtml, publi
   webpackConfig.module.preLoaders = webpackConfig.module.preLoaders || []
   webpackConfig.module.preLoaders.push({
     test: /\.md$/,
-    loader: `babel?${JSON.stringify(webpackConfig.babel)}!kakashi-md-loader?template=${tpl}&publicPath=${publicPath}&duoshuoName=${duoshuoName}`,
+    loader: `babel?${JSON.stringify(webpackConfig.babel)}!doraemon-md-loader?template=${tpl}&publicPath=${publicPath}&duoshuoName=${duoshuoName}`,
     include: path.join(cwd, source)
     // include: path.join(cwd, './app')
   })

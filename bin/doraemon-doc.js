@@ -3,7 +3,7 @@
 var cp = require('child_process')
 
 function start () {
-  const p = cp.fork(__dirname + '/kakashi-doc', process.argv.slice(2))
+  const p = cp.fork(__dirname + '/doraemon-doc', process.argv.slice(2))
   p.on('message', function (data) {
     if (data === 'restart') {
       p.kill('SIGINT')
@@ -27,7 +27,7 @@ if (!process.send) {
     .version(require('../package').version, '-v, --version')
     .command('doc')
     .option('--init', '初始化项目')
-    // .option('--duoshuoName <string>', '启用并设置对应的多说项目名')
+    .option('--duoshuoName <string>', '启用并设置对应的多说项目名')
     .option('--dest <dir>', '输出网站的目录, 默认 __site 目录', '__site')
     .option('--source <dir>', '文档源目录, 默认 examples 目录', 'examples')
     .option('--asset <dir>', '静态资源文件目录, 默认 ./tpl/static 目录', './tpl/static')

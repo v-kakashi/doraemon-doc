@@ -1,21 +1,21 @@
 {
   "name": "doraemon-doc",
-  "version": "2.0.0",
+  "version": "2.0.3",
   "description": "一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。",
-  "main": "./bin/kakashi-doc.js",
+  "main": "./bin/doraemon-doc.js",
   "directories": {
     "example": "examples"
   },
   "bin": {
-    "kakashi-doc": "./bin/kakashi-doc.js"
+    "doraemon-doc": "./bin/doraemon-doc.js"
   },
   "scripts": {
     "prepublish": "npm run build",
     "start": "concurrently 'npm run dev' 'npm run doc'",
     "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib",
     "dev": "./node_modules/.bin/babel src -s --out-dir lib --watch",
-    "doc": "npm run build && node ./bin/kakashi-doc.js doc",
-    "dist": "npm run build && node ./bin/kakashi-doc.js doc --build --publicPath /__site",
+    "doc": "npm run build && node ./bin/doraemon-doc.js doc",
+    "dist": "npm run build && node ./bin/doraemon-doc.js doc --build --publicPath /__site",
     "lint": "eslint src",
     "eslint-fix": "eslint --fix src",
     "gh-pages": "npm run dist && gh-pages -d __site",
@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/v-kakashi/kakashi-doc.git"
+    "url": "git+https://github.com/v-kakashi/doraemon-doc.git"
   },
   "author": "lmm0591@qq.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/v-kakashi/kakashi-doc/issues"
+    "url": "https://github.com/v-kakashi/doraemon-doc/issues"
   },
-  "homepage": "https://github.com/v-kakashi/kakashi-doc#readme",
+  "homepage": "https://github.com/v-kakashi/doraemon-doc#readme",
   "dependencies": {
     "atool-doc-js-loader": "^0.1.0",
     "atool-doc-util": "^0.1.0",
