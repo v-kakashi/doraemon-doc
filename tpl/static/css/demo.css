@@ -1,5 +1,6 @@
 body{background: #fafafa;}
 .example{
+  background: #fafafa;
   -moz-user-select:none;/*火狐*/
   -webkit-user-select:none;/*webkit浏览器*/
   -ms-user-select:none;/*IE10*/
@@ -7,21 +8,22 @@ body{background: #fafafa;}
   user-select:none;
 }
 .example h2{
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
   color: #555;
   font-size: 16px;
+  padding-left: 14px;
   font-weight: 700;
   color: #222;
-  margin: 0 0 1rem;
   line-height: 1.2;
 }
-.example .group{ margin: 1.875rem 0; }
-.example .group-header { padding: .3125rem .9375rem; color: #6d6d72; font-size: .875rem;}
-.example .group-body { display: block; padding: .9375rem; background: #fff;}
+.example .group{ margin: 14px 0 22px 0; }
+.example .group-header { padding: 18px 14px; color: #6d6d72; font-size: 14px;}
+.example .group-body { display: block; padding: 14px; background: #fff;}
 .example .group-body-icons{ display: flex; font-size: 24px; text-align: center; color: #000;flex-wrap: wrap; }
+.example .group-body-row{ padding: 6px 0;}
 .example .icon-cell{ flex:0 0 25%; margin: 8px 0px;}
-.example .icon-text{font-size: 12px;
+.example .icon-text{font-size: 6px;
   -moz-user-select:initial;/*火狐*/
   -webkit-user-select:initial;/*webkit浏览器*/
   -ms-user-select:initial;/*IE10*/
