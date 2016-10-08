@@ -16,7 +16,7 @@ title: 工具安装
 ## 安装
 
 ```bash
-  npm install doraemon-doc -g
+  npm install doraemon-doc -g --registry=https://registry.npm.taobao.org
 ```
 
 ## 使用
@@ -45,7 +45,7 @@ title: 工具安装
 运行如下命令
 
 ```bash
-  doraemon-doc doc --index
+  doraemon-doc doc
 ```
 
 
