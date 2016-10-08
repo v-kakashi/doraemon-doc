@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>工具安装</title>
+    <title>对话框2</title>
     <meta name="renderer" content="webkit">
     <link href="../tpl/static/css/normalize.css" rel="stylesheet"/>
     <link href="../tpl/static/css/demo.css" rel="stylesheet"/>
@@ -16,10 +16,20 @@
   </head>
   <body>
     
+      <div class="example">
+        <div id="app">
+  <vk-msgbox message="你好，程序员!">
+    <div class="vk-msgbox-content" slot="content">
+      <vk-image src="http://fanyi.baidu.com/static/translation/img/header/logo_cbfea26.png"></vk-image>
+    </div>
+  </vk-msgbox>
+</div>
+      </div>
     
-      <script src="../common.js"></script>
     
-      <script src="install.js"></script>
+      <script src="../../common.js"></script>
+    
+      <script src="box-content.js"></script>
     
   </body>
 </html>

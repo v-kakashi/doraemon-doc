@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>对话框2</title>
+    <link href="../../../__site/tpl/static/css/normalize.css" rel="stylesheet"/>
+    <link href="../../../__site/tpl/static/css/anticon.css" rel="stylesheet"/>
+    <link href="../../../__site/tpl/static/css/markdown.css" rel="stylesheet"/>
+    <link href="../../../__site/tpl/static/css/main.css" rel="stylesheet"/>
+    <link href="../../../__site/tpl/static/css/hl.css" rel="stylesheet"/>
+    <style type="text/css">
+      
+    </style>
+    <script>
+    var relativePath = "../../../__site";
+    </script>
+    <script src="../../../__site/tpl/static/js/jquery-3.1.0.min.js" charset="UTF-8"></script>
+    <script src="../../../__site/tpl/static/js/handlebars-v4.0.5.js" charset="UTF-8"></script>
+    <script src="../../../__site/tpl/static/js/element.js" charset="UTF-8"></script>
+    <script id="menu-template" type="text/x-handlebars-template">
+      <ul class="ant-menu ant-menu-inline aside-container ant-menu-light ant-menu-root" >
+        {{#each menu}}
+          <li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">
+            <div class="ant-menu-submenu-title">
+              <h4>{{category}}</h4>
+            </div>
+            <ul class="ant-menu ant-menu-inline ant-menu-sub">
+              {{#each items}}
+                {{#if isSelf}}
+                <li class="ant-menu-item ant-menu-item-selected">
+                  <a href="{{url}}"><span>{{title}}</span></a>
+                </li>
+                {{else if isNode}}
+                <div class="ant-menu-item-group-title">{{title}}</div>
+                {{else}}
+                <li class="ant-menu-item ">
+                  <a href="{{url}}"><span>{{title}}</span></a>
+                </li>
+                {{/if}}
+                {{#if children}}
+                  <ul class="ant-menu-item-group-list">
+                  {{#each children}}
+                    {{#if isSelf}}
+                    <li class="ant-menu-item ant-menu-item-selected" style="padding-left: 48px;">
+                    {{else}}
+                    <li class="ant-menu-item" style="padding-left: 48px;">
+                    {{/if}}
+                      <a href="{{url}}"><span>{{title}}</span></a>
+                    </li>
+                  {{/each}}
+                  </ul>
+                {{/if}}
+              {{/each}}
+            </ul>
+          </li>
+        {{/each}}
+      </ul>
+    </script>
+  </head>
+  <body>
+    msgbox/box-content
+    <header id="header" class="clearfix">
+      <div class="ant-row">
+        <div class="ant-col-4">
+          <i class="nav-phone-icon anticon anticon-menu"></i>
+          <a id="logo" href="/">
+            <img alt="logo" src="../../../__site/tpl/static/img/logo.png" />
+            <span>kakashi-ui</span>
+          </a>
+        </div>
+        <div class="nav  ant-col-xs-0 ant-col-sm-17 ant-col-md-18 ant-col-lg-20" style="display: block;">
+          <ul id="nav" class="ant-menu ant-menu-horizontal  ant-menu-light ant-menu-root">
+            <li class="ant-menu-item">
+              <a href="https://github.com/v-kakashi/kakashi-ui"><span>GitHub</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="wrapper">
+      <div id="menu" class="demos-anchor menu">
+
+      </div>
+      <div class="wrapper-content">
+        <article>
+          <section class="markdown">
+            <h1>对话框2</h1>
+            
+              <h2>何时使用</h2>
+<p>弹出式提示框，有多种交互形式。</p>
+<h2>代码演示</h2>
+<div class="highlight"><pre><code language=html><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">vk-msgbox</span> <span class="hljs-attr">message</span>=<span class="hljs-string">"你好，程序员!"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"vk-msgbox-content"</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"content"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">vk-image</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://fanyi.baidu.com/static/translation/img/header/logo_cbfea26.png"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">vk-image</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">vk-msgbox</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<div class="highlight"><pre><code language=js><span class="hljs-keyword">import</span> vkMsgbox <span class="hljs-keyword">from</span> <span class="hljs-string">'kakashi-ui/src/msgbox'</span>
+<span class="hljs-keyword">import</span> vkImage <span class="hljs-keyword">from</span> <span class="hljs-string">'kakashi-ui/src/image'</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">'kakashi-theme/src/components/image.less'</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">'kakashi-theme/src/components/msgbox.less'</span>
+
+<span class="hljs-keyword">new</span> Vue({
+  el: <span class="hljs-string">"#app"</span>,
+  components: {
+    vkMsgbox,
+    vkImage
+  }
+})</code></pre></div>
+<h2>vkMsgbox</h2>
+<table><thead><tr><th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th></tr></thead>
+<tbody><tr><td>title</td>
+<td>提示框的标题</td>
+<td>String</td>
+<td>&#39;标题&#39;</td></tr>
+<tr><td>message</td>
+<td>提示框的内容</td>
+<td>String</td>
+<td>&#39;&#39;</td></tr>
+<tr><td>showConfirmButton</td>
+<td>是否显示确认按钮</td>
+<td>Boolean</td>
+<td>true</td></tr>
+<tr><td>showCancelButton</td>
+<td>是否显示取消按钮</td>
+<td>Boolean</td>
+<td>false</td></tr>
+<tr><td>confirmButtonText</td>
+<td>确认按钮的文本</td>
+<td>String</td>
+<td>&#39;&#39;</td></tr>
+<tr><td>confirmButtonHighlight</td>
+<td>是否将确认按钮的文本加粗显示</td>
+<td>Boolean</td>
+<td>false</td></tr>
+<tr><td>confirmButtonClass</td>
+<td>确认按钮的类名</td>
+<td>String</td>
+<td>&#39;&#39;</td></tr>
+<tr><td>cancelButtonText</td>
+<td>取消按钮的文本</td>
+<td>String</td>
+<td>&#39;&#39;</td></tr>
+<tr><td>confirmButtonHighlight</td>
+<td>是否将确认按钮的文本加粗显示</td>
+<td>Boolean</td>
+<td>false</td></tr>
+<tr><td>cancelButtonHighlight</td>
+<td>是否将取消按钮的文本加粗显示</td>
+<td>Boolean</td>
+<td>false</td></tr>
+<tr><td>cancelButtonClass</td>
+<td>取消按钮的类名</td>
+<td>String</td>
+<td>&#39;&#39;</td></tr>
+<tr><td>showInput</td>
+<td>是否显示一个输入框</td>
+<td>Boolean</td>
+<td>false</td></tr>
+<tr><td>inputValue</td>
+<td>输入框的值</td>
+<td>String</td>
+<td>&#39;&#39;</td></tr>
+<tr><td>inputPlaceholder</td>
+<td>输入框的占位符</td>
+<td>String</td>
+<td>&#39;&#39;</td></tr></tbody></table>
+            
+        </article>
+        <div class="header">
+          <h1></h1>
+        </div>
+        
+          <div class="example">
+            <div class="phone">
+              <iframe class="example-html demo-page" frameborder="0" src="./box-content-demo.html"> </iframe>
+            </div>
+          </div>
+        
+      </div>
+  </body>
+</html>

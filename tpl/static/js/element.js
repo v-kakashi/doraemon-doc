@@ -1,5 +1,5 @@
 $(function ready () {
-  $.get('../menu.json', function (dataList) {
+  $.get( relativePath + '/menu.json', function (dataList) {
     /*
     <ul class="ant-menu ant-menu-inline aside-container ant-menu-light ant-menu-root" >
       <li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">
@@ -17,11 +17,21 @@ $(function ready () {
     </ul>
     */
     var menuMap = {}
-    var menu = []
     var href = window.location.href
     dataList.forEach(function (data) {
-      menuMap[data.category] || (menuMap[data.category] = { category: data.category, items: [] })
-      menuMap[data.category].items.push(data)
+      var category = menuMap[data.category] || (menuMap[data.category] = { category: data.category, itemMap: {}, items: [] })
+      if(data.type){
+        category.itemMap[data.type] || ( category.itemMap[data.type] = { children: [], isNode: true } )
+        if (/index\.html$/.test(data.url)) {
+          // category.itemMap[data.type].url = '#'
+          category.itemMap[data.type].title = data.type
+        }
+        category.itemMap[data.type].children.push(data)
+      } else {
+        category.items.push(data)
+      }
+
+      // debugger
       if (new RegExp(data.url, 'i').test(href)) {
         data.url = '#'
         data.isSelf = true
@@ -29,10 +39,21 @@ $(function ready () {
         data.isSelf = false
       }
     })
-    menu.push(menuMap['说明'])
-    menu.push(menuMap['组件'])
+
+    for(var key in menuMap) {
+      var menu = menuMap[key]
+      for (var itmeKey in menu.itemMap) {
+        var item = menu.itemMap[itmeKey]
+        menu.items.push(item)
+      }
+    }
+
+    var tplData = []
+    tplData.push(menuMap['说明'])
+    tplData.push(menuMap['组件'])
+    console.log(tplData)
     var template = Handlebars.compile($('#menu-template').html())
-    var html = template({ 'menu': menu })
+    var html = template({ 'menu': tplData })
 
     $('#menu').append(html)
   })
