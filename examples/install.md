@@ -16,14 +16,14 @@ title: 工具安装
 ## 安装
 
 ```bash
-  npm install kakashi-doc -g
+  npm install doraemon-doc -g
 ```
 
 ## 使用
 
 ### 安装模板
 ```bash
-  kakashi-doc install
+  doraemon-doc install
 ```
 [kakashi-doc-template](https://github.com/v-kakashi/kakashi-doc-template) 为文档生成器推荐显示模板，用户也可以自定义皮肤(目前只支持默认模板)
 
@@ -45,18 +45,18 @@ title: 工具安装
 运行如下命令
 
 ```bash
-  kakashi-doc doc --index
+  doraemon-doc doc --index
 ```
 
 
 ### 命令说明
 
 ```bash
-  kakashi-doc install <template> 项目初始下载显示模板, 默认 kakashi-doc-template
+  doraemon-doc instal <template> 项目初始下载显示模板, 默认 kakashi-doc-template
 
-  kakashi-doc doc    生成演示网站(http://127.0.0.1:8002)
+  doraemon-doc doc    生成演示网站(http://127.0.0.1:7788)
 
-  kakashi-doc doc [options]
+  doraemon-doc doc [options]
 
     -h, --help       显示使用信息
     -v, --version    工具的版本号
@@ -64,7 +64,7 @@ title: 工具安装
     --source <dir>   配置文档源目录, 默认 examples 目录
     --asset <dir>    配置静态资源文件目录, 默认 statics 目录
     --tpl <path>     配置显示模板文件
-    --port <number>  网站的端口号, 默认 8002
+    --port <number>  网站的端口号, 默认 7788
     --build          生成网站
     --index <path>   自定义首页地址, 默认 ./examples/install.html
     -w, --watch      已监听模式启动 --build 命令
