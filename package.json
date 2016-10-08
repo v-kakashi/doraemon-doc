@@ -1,6 +1,6 @@
 {
   "name": "doraemon-doc",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。",
   "main": "./bin/doraemon-doc.js",
   "directories": {
@@ -15,7 +15,7 @@
     "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib",
     "dev": "./node_modules/.bin/babel src -s --out-dir lib --watch",
     "doc": "npm run build && node ./bin/doraemon-doc.js doc",
-    "dist": "npm run build && node ./bin/doraemon-doc.js doc --build --publicPath /__site",
+    "dist": "npm run build && node ./bin/doraemon-doc.js doc --build --publicPath /doraemon-doc",
     "lint": "eslint src",
     "eslint-fix": "eslint --fix src",
     "gh-pages": "npm run dist && gh-pages -d __site",

@@ -2,6 +2,7 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import getBabelCommonConfig from './getBabelConfig'
 import path from 'path'
+import fs from 'fs'
 var utils = require('./utils')
 // WEBPACK 的配置文件
 
@@ -22,6 +23,7 @@ export default function getWebpackCommonConfig ({cwd, devtool, theme}) {
   })()
 
   const babelQuery = getBabelCommonConfig()
+  const variablesPath = paths.src(`themes/${theme}/variables`)
   return {
     babel: babelQuery,
     devtool,
@@ -39,7 +41,7 @@ export default function getWebpackCommonConfig ({cwd, devtool, theme}) {
         browsers: 'Android >= 4, iOS >= 7',
         features: {
           customProperties: {
-            variables: require(paths.src(`themes/${theme}/variables`))
+            variables: fs.existsSync(variablesPath) ? require(variablesPath) : {}
           }
         }
       }),
