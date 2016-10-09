@@ -3,5 +3,4 @@ lib
 __site
 .vscode
 /npm-debug.log
-tpl/
 __site
