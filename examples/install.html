@@ -95,7 +95,10 @@
 <h2>特点</h2>
 <ol><li>在 markdown 文件中编写 HTML、JS、VUE、CSS 代码，并且编译成网站。</li>
 <li>将 markdown 文件中的代码生成 demo 网页</li>
-<li>支持自定义生成模板</li></ol>
+<li>支持自定义生成模板</li>
+<li>支持评论功能</li></ol>
+<h2>预装软件</h2>
+<ul><li><a href="http://nodejs.org/">nodejs</a></li></ul>
 <h2>安装</h2>
 <div class="highlight"><pre><code language=bash>  npm install doraemon-doc -g --registry=https://registry.npm.taobao.org</code></pre></div>
 <h2>使用</h2>
@@ -127,6 +130,7 @@
     --source &lt;dir&gt;   配置文档源目录, 默认 examples 目录
     --asset &lt;dir&gt;    配置静态资源文件目录, 默认 statics 目录
     --tpl &lt;path&gt;     配置显示模板文件
+    --duoshuoName &lt;string&gt; 启用并设置对应的 多说 项目名
     --port &lt;number&gt;  网站的端口号, 默认 7788
     --build          生成网站
     --index &lt;path&gt;   自定义首页地址, 默认 ./examples/install.html
