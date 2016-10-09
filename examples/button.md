@@ -17,46 +17,46 @@ title: Button 按钮控件
   <div class="group">
     <header class="group-header">默认样式</header>
     <div class="group-body">
-      <vk-button type="default">default</vk-button>
-      <vk-button type="primary">primary</vk-button>
-      <vk-button type="danger">danger</vk-button>
+      <vk-button type="default">default</vk-button> <br />
+      <vk-button type="primary">primary</vk-button> <br />
+      <vk-button type="danger">danger</vk-button> <br />
     </div>
   </div>
   <div class="group">
     <header class="group-header">幽灵样式</header>
     <div class="group-body">
-      <vk-button type="default" plain>default</vk-button>
-      <vk-button type="primary" plain>primary</vk-button>
-      <vk-button type="danger" plain>danger</vk-button>
+      <vk-button type="default" plain>default</vk-button> <br />
+      <vk-button type="primary" plain>primary</vk-button> <br />
+      <vk-button type="danger" plain>danger</vk-button> <br />
     </div>
   </div>
   <div class="group">
     <header class="group-header">按钮大小</header>
     <div class="group-body">
-      <vk-button size="small">small</vk-button>
-      <vk-button size="normal">normal</vk-button>
-      <vk-button size="large">large</vk-button>
+      <vk-button size="small">small</vk-button> <br />
+      <vk-button size="normal">normal</vk-button> <br />
+      <vk-button size="large">large</vk-button>  <br />
     </div>
   </div>
   <div class="group">
     <header class="group-header">按钮状态</header>
     <div class="group-body">
-      <vk-button plain>幽灵按钮</vk-button>
-      <vk-button disabled>禁用</vk-button>
+      <vk-button plain>幽灵按钮</vk-button> <br />
+      <vk-button disabled>禁用</vk-button> <br />
     </div>
   </div>
   <div class="group">
     <header class="group-header">带图标按钮</header>
     <div class="group-body">
-      <vk-button icon="alarms">按钮1</vk-button>
-      <vk-button icon="balance">按钮2</vk-button>
-      <vk-button icon="box">按钮3</vk-button>
+      <vk-button icon="alarms">按钮1</vk-button> <br />
+      <vk-button icon="balance">按钮2</vk-button> <br />
+      <vk-button icon="box">按钮3</vk-button> <br />
     </div>
   </div>
   <div class="group">
     <header class="group-header">事件</header>
     <div class="group-body">
-      <vk-button :on-touch="touch">单击事件</vk-button>
+      <vk-button :on-touch="touch">单击事件</vk-button> <br />
     </div>
   </div>
 </div>

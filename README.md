@@ -17,6 +17,7 @@ title: 工具安装
 ## 预装软件
 
 - [nodejs](http://nodejs.org/)
+- [cmder](http://cmder.net/) 在 window 环境下使用该软件进行操作
 
 ## 安装
 

@@ -1,5 +1,3 @@
-
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import getBabelCommonConfig from './getBabelConfig'
 import path from 'path'
 import fs from 'fs'
@@ -95,13 +93,12 @@ export default function getWebpackCommonConfig ({cwd, devtool, theme}) {
         ]
       },
       {
-        test (filePath) {
-          return /\.less$/.test(filePath) && !/\.module\.less$/.test(filePath)
-        },
-        loader: ExtractTextPlugin.extract(
-          'css?sourceMap!' +
-          'less-loader?{"sourceMap":true}'
-        )
+        test: /\.less$/,
+        loaders: [
+          'style',
+          'css',
+          'less'
+        ]
       }]
     },
     vue: {

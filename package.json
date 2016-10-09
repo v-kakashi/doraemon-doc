@@ -1,6 +1,6 @@
 {
   "name": "doraemon-doc",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。",
   "main": "./bin/doraemon-doc.js",
   "directories": {
@@ -11,9 +11,8 @@
   },
   "scripts": {
     "prepublish": "npm run build",
-    "start": "concurrently 'npm run dev' 'npm run doc'",
-    "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib",
-    "dev": "./node_modules/.bin/babel src -s --out-dir lib --watch",
+    "build": "rm -rf lib && babel src --out-dir lib",
+    "dev": "babel src -s --out-dir lib --watch",
     "doc": "npm run build && node ./bin/doraemon-doc.js doc",
     "dist": "npm run build && node ./bin/doraemon-doc.js doc --build --publicPath /doraemon-doc",
     "lint": "eslint src",
@@ -52,14 +51,13 @@
     "css-loader": "^0.23.1",
     "dora": "^0.4.3",
     "dora-plugin-proxy": "^0.8.0",
+    "doraemon-md-loader": "^2.0.1",
     "download-git-repo": "^0.1.2",
     "ejs": "^2.4.2",
-    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.4",
     "glob": "^7.0.3",
     "html-webpack-plugin": "^2.9.0",
     "json-loader": "^0.5.4",
-    "doraemon-md-loader": "^2.0.1",
     "koa-webpack-dev-middleware": "^1.1.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
@@ -83,6 +81,8 @@
     "webpack-merge": "^0.14.0"
   },
   "devDependencies": {
+    "kakashi-theme": "*",
+    "kakashi-ui": "*",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "concurrently": "^2.1.0",
