@@ -12,6 +12,11 @@ title: 工具安装
 1. 在 markdown 文件中编写 HTML、JS、VUE、CSS 代码，并且编译成网站。
 2. 将 markdown 文件中的代码生成 demo 网页
 3. 支持自定义生成模板
+4. 支持评论功能
+
+## 预装软件
+
+- [nodejs](http://nodejs.org/)
 
 ## 安装
 
@@ -64,6 +69,7 @@ title: 工具安装
     --source <dir>   配置文档源目录, 默认 examples 目录
     --asset <dir>    配置静态资源文件目录, 默认 statics 目录
     --tpl <path>     配置显示模板文件
+    --duoshuoName <string> 启用并设置对应的 多说 项目名
     --port <number>  网站的端口号, 默认 7788
     --build          生成网站
     --index <path>   自定义首页地址, 默认 ./examples/install.html
