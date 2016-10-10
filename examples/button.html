@@ -18,6 +18,16 @@
 
     // 多说插件
     
+    var duoshuoQuery = {short_name:"doraemon-doc"};
+    	(function() {
+    		var ds = document.createElement('script');
+    		ds.type = 'text/javascript';ds.async = true;
+    		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    		ds.charset = 'UTF-8';
+    		(document.getElementsByTagName('head')[0]
+    		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+    	})();
+    
     </script>
     <script src="../../doraemon-doc/tpl/static/js/jquery-3.1.0.min.js" charset="UTF-8"></script>
     <script src="../../doraemon-doc/tpl/static/js/handlebars-v4.0.5.js" charset="UTF-8"></script>
@@ -200,6 +210,8 @@
           </div>
         
 
+        
+        <div class="ds-thread" data-thread-key="button" data-title="Button 按钮控件"></div>
         
       </div>
     </div>
