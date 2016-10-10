@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>支持 JS 语法</title>
+    <link href="../../doraemon-doc/tpl/static/css/normalize.css" rel="stylesheet"/>
+    <link href="../../doraemon-doc/tpl/static/css/anticon.css" rel="stylesheet"/>
+    <link href="../../doraemon-doc/tpl/static/css/markdown.css" rel="stylesheet"/>
+    <link href="../../doraemon-doc/tpl/static/css/main.css" rel="stylesheet"/>
+    <link href="../../doraemon-doc/tpl/static/css/hl.css" rel="stylesheet"/>
+    <style type="text/css">
+      
+    </style>
+    <script>
+    console.log('本网页由 doraemon-doc 生成，具体使用请访问：https://github.com/v-kakashi/doraemon-doc')
+    var relativePath = "../../doraemon-doc";
+
+    // 多说插件
+    
+    var duoshuoQuery = {short_name:"doraemon-doc"};
+    	(function() {
+    		var ds = document.createElement('script');
+    		ds.type = 'text/javascript';ds.async = true;
+    		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    		ds.charset = 'UTF-8';
+    		(document.getElementsByTagName('head')[0]
+    		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+    	})();
+    
+    </script>
+    <script src="../../doraemon-doc/tpl/static/js/jquery-3.1.0.min.js" charset="UTF-8"></script>
+    <script src="../../doraemon-doc/tpl/static/js/handlebars-v4.0.5.js" charset="UTF-8"></script>
+    <script src="../../doraemon-doc/tpl/static/js/element.js" charset="UTF-8"></script>
+    <script id="menu-template" type="text/x-handlebars-template">
+      <ul class="ant-menu ant-menu-inline aside-container ant-menu-light ant-menu-root" >
+        {{#each menu}}
+          <li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">
+            <div class="ant-menu-submenu-title">
+              <h4>{{category}}</h4>
+            </div>
+            <ul class="ant-menu ant-menu-inline ant-menu-sub">
+              {{#each items}}
+                {{#if isSelf}}
+                <li class="ant-menu-item ant-menu-item-selected">
+                  <a href="{{url}}"><span>{{title}}</span></a>
+                </li>
+                {{else if isNode}}
+                <div class="ant-menu-item-group-title">{{title}}</div>
+                {{else}}
+                <li class="ant-menu-item ">
+                  <a href="{{url}}"><span>{{title}}</span></a>
+                </li>
+                {{/if}}
+                {{#if children}}
+                  <ul class="ant-menu-item-group-list">
+                  {{#each children}}
+                    {{#if isSelf}}
+                    <li class="ant-menu-item ant-menu-item-selected" style="padding-left: 48px;">
+                    {{else}}
+                    <li class="ant-menu-item" style="padding-left: 48px;">
+                    {{/if}}
+                      <a href="{{url}}"><span>{{title}}</span></a>
+                    </li>
+                  {{/each}}
+                  </ul>
+                {{/if}}
+              {{/each}}
+            </ul>
+          </li>
+        {{/each}}
+      </ul>
+    </script>
+  </head>
+  <body>
+    <header id="header" class="clearfix">
+      <div class="ant-row">
+        <div class="ant-col-4">
+          <a id="logo" href="/">
+            <img alt="logo" src="../../doraemon-doc/tpl/static/img/logo.png" />
+            <span>doraemon-doc</span>
+          </a>
+        </div>
+        <div class="nav  ant-col-xs-0 ant-col-sm-17 ant-col-md-18 ant-col-lg-20" style="display: block;">
+          <ul id="nav" class="ant-menu ant-menu-horizontal  ant-menu-light ant-menu-root">
+            <li class="ant-menu-item">
+              <a href="https://github.com/v-kakashi/doraemon-doc"><span>GitHub</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="wrapper">
+      <div id="menu" class="demos-anchor menu"></div>
+      
+      <div class="wrapper-content">
+      
+        <article>
+          <section class="markdown">
+            <h1>支持 JS 语法</h1>
+            
+              <hr></hr>
+<h2>说明</h2>
+<p>doraemon-doc 支持在 markdown 中编写 JS 代码</p>
+<h2>代码演示</h2>
+<div class="highlight"><pre><code language=html><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css"</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"accordion"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Section 1<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Section 2<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+    suscipit faucibus urna.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Section 3<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>List item one<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>List item two<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>List item three<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Section 4<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+    mauris vel est.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+    inceptos himenaeos.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<div class="highlight"><pre><code language=js>
+$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  $( <span class="hljs-string">"#accordion"</span> ).accordion();
+});</code></pre></div>
+            
+        </article>
+        
+          <div class="example">
+            <div class="phone">
+              <iframe class="example-html demo-page" frameborder="0" src="./js-demo.html"> </iframe>
+            </div>
+          </div>
+        
+
+        
+        <div class="ds-thread" data-thread-key="js" data-title="支持 JS 语法"></div>
+        
+      </div>
+    </div>
+  </body>
+</html>

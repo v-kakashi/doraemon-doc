@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>支持 VUE 语法</title>
+    <link href="../../doraemon-doc/tpl/static/css/normalize.css" rel="stylesheet"/>
+    <link href="../../doraemon-doc/tpl/static/css/anticon.css" rel="stylesheet"/>
+    <link href="../../doraemon-doc/tpl/static/css/markdown.css" rel="stylesheet"/>
+    <link href="../../doraemon-doc/tpl/static/css/main.css" rel="stylesheet"/>
+    <link href="../../doraemon-doc/tpl/static/css/hl.css" rel="stylesheet"/>
+    <style type="text/css">
+      
+    </style>
+    <script>
+    console.log('本网页由 doraemon-doc 生成，具体使用请访问：https://github.com/v-kakashi/doraemon-doc')
+    var relativePath = "../../doraemon-doc";
+
+    // 多说插件
+    
+    var duoshuoQuery = {short_name:"doraemon-doc"};
+    	(function() {
+    		var ds = document.createElement('script');
+    		ds.type = 'text/javascript';ds.async = true;
+    		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    		ds.charset = 'UTF-8';
+    		(document.getElementsByTagName('head')[0]
+    		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+    	})();
+    
+    </script>
+    <script src="../../doraemon-doc/tpl/static/js/jquery-3.1.0.min.js" charset="UTF-8"></script>
+    <script src="../../doraemon-doc/tpl/static/js/handlebars-v4.0.5.js" charset="UTF-8"></script>
+    <script src="../../doraemon-doc/tpl/static/js/element.js" charset="UTF-8"></script>
+    <script id="menu-template" type="text/x-handlebars-template">
+      <ul class="ant-menu ant-menu-inline aside-container ant-menu-light ant-menu-root" >
+        {{#each menu}}
+          <li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">
+            <div class="ant-menu-submenu-title">
+              <h4>{{category}}</h4>
+            </div>
+            <ul class="ant-menu ant-menu-inline ant-menu-sub">
+              {{#each items}}
+                {{#if isSelf}}
+                <li class="ant-menu-item ant-menu-item-selected">
+                  <a href="{{url}}"><span>{{title}}</span></a>
+                </li>
+                {{else if isNode}}
+                <div class="ant-menu-item-group-title">{{title}}</div>
+                {{else}}
+                <li class="ant-menu-item ">
+                  <a href="{{url}}"><span>{{title}}</span></a>
+                </li>
+                {{/if}}
+                {{#if children}}
+                  <ul class="ant-menu-item-group-list">
+                  {{#each children}}
+                    {{#if isSelf}}
+                    <li class="ant-menu-item ant-menu-item-selected" style="padding-left: 48px;">
+                    {{else}}
+                    <li class="ant-menu-item" style="padding-left: 48px;">
+                    {{/if}}
+                      <a href="{{url}}"><span>{{title}}</span></a>
+                    </li>
+                  {{/each}}
+                  </ul>
+                {{/if}}
+              {{/each}}
+            </ul>
+          </li>
+        {{/each}}
+      </ul>
+    </script>
+  </head>
+  <body>
+    <header id="header" class="clearfix">
+      <div class="ant-row">
+        <div class="ant-col-4">
+          <a id="logo" href="/">
+            <img alt="logo" src="../../doraemon-doc/tpl/static/img/logo.png" />
+            <span>doraemon-doc</span>
+          </a>
+        </div>
+        <div class="nav  ant-col-xs-0 ant-col-sm-17 ant-col-md-18 ant-col-lg-20" style="display: block;">
+          <ul id="nav" class="ant-menu ant-menu-horizontal  ant-menu-light ant-menu-root">
+            <li class="ant-menu-item">
+              <a href="https://github.com/v-kakashi/doraemon-doc"><span>GitHub</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="wrapper">
+      <div id="menu" class="demos-anchor menu"></div>
+      
+      <div class="wrapper-content">
+      
+        <article>
+          <section class="markdown">
+            <h1>支持 VUE 语法</h1>
+            
+              <hr></hr>
+<blockquote><p>doraemon-doc 支持在 markdown 中编写 JS 代码 和 使用 VUE 框架</p></blockquote>
+<h2>什么是 vue ?</h2>
+<p>Vue.js（读音 /vjuː/, 类似于 view）是一个构建数据驱动的 web 界面的库。Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。</p>
+<p>Vue.js 自身不是一个全能框架——它只聚焦于视图层。因此它非常容易学习，非常容易与其它库或已有项目整合。另一方面，在与相关工具和支持库一起使用时，Vue.js 也能完美地驱动复杂的单页应用。</p>
+<p>如果你是有经验的前端开发者，想知道 Vue.js 与其它库/框架的区别，查看<a href="http://cn.vuejs.org/guide/comparison.html">对比其它框架</a>；</p>
+<p>如果你对使用 Vue.js 开发大型应用更感兴趣，查看<a href="http://cn.vuejs.org/guide/application.html">构建大型应用</a>。</p>
+<h2>代码演示</h2>
+<div class="highlight"><pre><code language=html><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding-top:20px;"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>todo list<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"group"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"group-body"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"newTodo"</span> <span class="hljs-attr">v-on:keyup.enter</span>=<span class="hljs-string">"addTodo"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"todo in todos"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{{ todo.text }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"removeTodo($index)"</span>&gt;</span>X<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<div class="highlight"><pre><code language=js><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">new</span> Vue({
+  el: <span class="hljs-string">'#app'</span>,
+  data: {
+    newTodo: <span class="hljs-string">''</span>,
+    todos: [
+      { text: <span class="hljs-string">'Add some todos'</span> }
+    ]
+  },
+  methods: {
+    addTodo: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> text = <span class="hljs-keyword">this</span>.newTodo.trim()
+      <span class="hljs-keyword">if</span> (text) {
+        <span class="hljs-keyword">this</span>.todos.push({ text: text })
+        <span class="hljs-keyword">this</span>.newTodo = <span class="hljs-string">''</span>
+      }
+    },
+    removeTodo: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">index</span>) </span>{
+      <span class="hljs-keyword">this</span>.todos.splice(index, <span class="hljs-number">1</span>)
+    }
+  }
+})</code></pre></div>
+            
+        </article>
+        
+          <div class="example">
+            <div class="phone">
+              <iframe class="example-html demo-page" frameborder="0" src="./vue-demo.html"> </iframe>
+            </div>
+          </div>
+        
+
+        
+        <div class="ds-thread" data-thread-key="vue" data-title="支持 VUE 语法"></div>
+        
+      </div>
+    </div>
+  </body>
+</html>

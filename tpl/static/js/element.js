@@ -1,5 +1,5 @@
 $(function ready () {
-  $.get( relativePath + '/menu.json', function (dataList) {
+  $.get(relativePath + '/menu.json', function (dataList) {
     /*
     <ul class="ant-menu ant-menu-inline aside-container ant-menu-light ant-menu-root" >
       <li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">
@@ -19,15 +19,21 @@ $(function ready () {
     var menuMap = {}
     var href = window.location.href
     dataList.forEach(function (data) {
-      var category = menuMap[data.category] || (menuMap[data.category] = { category: data.category, itemMap: {}, items: [] })
-      if(data.type){
-        category.itemMap[data.type] || ( category.itemMap[data.type] = { children: [], isNode: true } )
+      if (!menuMap[data.category]) {
+        data['category-order'] == null && (data['category-order'] = Number.MAX_VALUE)
+        menuMap[data.category] = { category: data.category, 'category-order': data['category-order'], itemMap: {}, items: [] }
+      }
+
+      var category = menuMap[data.category]
+      if (data.type) {
+        category.itemMap[data.type] || (category.itemMap[data.type] = { children: [], isNode: true })
         if (/index\.html$/.test(data.url)) {
           // category.itemMap[data.type].url = '#'
           category.itemMap[data.type].title = data.type
         }
         category.itemMap[data.type].children.push(data)
       } else {
+        data['article-order'] == null && (data['article-order'] = Number.MAX_VALUE)
         category.items.push(data)
       }
 
@@ -40,7 +46,7 @@ $(function ready () {
       }
     })
 
-    for(var key in menuMap) {
+    for (var key in menuMap) {
       var menu = menuMap[key]
       for (var itmeKey in menu.itemMap) {
         var item = menu.itemMap[itmeKey]
@@ -49,8 +55,16 @@ $(function ready () {
     }
 
     var tplData = []
-    tplData.push(menuMap['说明'])
-    tplData.push(menuMap['组件'])
+    console.log(menuMap)
+    for (key in menuMap) {
+      menuMap[key].items.sort(function (a, b) {
+        return a['article-order'] >= b['article-order']
+      })
+      tplData.push(menuMap[key])
+    }
+    tplData.sort(function (a, b) {
+      return a['category-order'] >= b['category-order']
+    })
     var template = Handlebars.compile($('#menu-template').html())
     var html = template({ 'menu': tplData })
 
