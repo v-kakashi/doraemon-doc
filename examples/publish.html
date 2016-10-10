@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Indicator 加载控件</title>
+    <title>发布 GitHub Pages</title>
     <link href="../../doraemon-doc/tpl/static/css/normalize.css" rel="stylesheet"/>
     <link href="../../doraemon-doc/tpl/static/css/anticon.css" rel="stylesheet"/>
     <link href="../../doraemon-doc/tpl/static/css/markdown.css" rel="stylesheet"/>
@@ -83,71 +83,23 @@
     <div class="wrapper">
       <div id="menu" class="demos-anchor menu"></div>
       
-      <div class="wrapper-content">
+      <div class="wrapper-content" style="padding-right:50px;">
       
         <article>
           <section class="markdown">
-            <h1>Indicator 加载控件</h1>
+            <h1>发布 GitHub Pages</h1>
             
-              <h2>说明</h2>
-<h2>代码演示</h2>
-<div class="highlight"><pre><code language=html><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"group"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"group-body group-body-icons"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">vk-button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"handleClick"</span>&gt;</span>显示<span class="hljs-tag">&lt;/<span class="hljs-name">vk-button</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">vk-indicator</span> <span class="hljs-attr">:visible</span>=<span class="hljs-string">"isShow"</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"加载中"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">vk-indicator</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
-<div class="highlight"><pre><code language=js><span class="hljs-keyword">import</span> vkIndicator <span class="hljs-keyword">from</span> <span class="hljs-string">'kakashi-ui/src/indicator'</span>
-<span class="hljs-keyword">import</span> vkButton <span class="hljs-keyword">from</span> <span class="hljs-string">'kakashi-ui/src/Button'</span>
-<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
-
-<span class="hljs-keyword">import</span> <span class="hljs-string">'kakashi-theme/src/components/indicator.less'</span>
-<span class="hljs-keyword">import</span> <span class="hljs-string">'kakashi-theme/src/components/spinner.less'</span>
-<span class="hljs-keyword">import</span> <span class="hljs-string">'kakashi-theme/src/components/button.less'</span>
-
-<span class="hljs-keyword">new</span> Vue({
-  el: <span class="hljs-string">"#app"</span>,
-  data () {
-    <span class="hljs-keyword">return</span> {
-      isShow: <span class="hljs-literal">false</span>
-    }
-  },
-  methods: {
-    handleClick ($event) {
-      <span class="hljs-keyword">this</span>.isShow = <span class="hljs-literal">true</span>
-      setTimeout(() =&gt; {
-        <span class="hljs-keyword">this</span>.isShow = <span class="hljs-literal">false</span>
-      }, <span class="hljs-number">5000</span>);
-    }
-  },
-  components: {
-    vkIndicator,
-    vkButton
-  }
-})</code></pre></div>
-<h2>Props</h2>
-<table><thead><tr><th>参数</th>
-<th>说明</th>
-<th>类型</th>
-<th>默认值</th></tr></thead>
-<tbody><tr><td>text</td>
-<td>加载文字</td>
-<td>String</td>
-<td>&#39;&#39;</td></tr>
-<tr><td>visible</td>
-<td>是否显示</td>
-<td>Boolean</td>
-<td>false</td></tr></tbody></table>
+              <hr></hr>
+<h2>GitHub Pages 是什么？</h2>
+<p>为 GitHub 中的项目创建静态网站，<a href="https://pages.github.com/">访问创建指南</a>。</p>
+<hr></hr>
+<h2>如何发布到 GitHub Pages</h2>
+<ol><li>创建一个 GitHub Pages 项目，如项目名为 myBlog</li>
+<li>因为 GitHub Pages 生成出的网站是以项目为二级目录的，如: <code>https://xxxxx.github.io/myBlog</code>，所以我们要设置一个发布的目录，运行命令如：<code>doraemon-doc doc --build --publicPath /myBlog</code></li>
+<li>安装 <a href="https://github.com/tschaub/gh-pages">gh-pages</a> , <code>npm i gh-pages -g</code></li>
+<li>发布到 GitHub 上 <code>gh-pages -d __site</code></li></ol>
             
         </article>
-        
-          <div class="example">
-            <div class="phone">
-              <iframe class="example-html demo-page" frameborder="0" src="./indicator-demo.html"> </iframe>
-            </div>
-          </div>
         
 
         
