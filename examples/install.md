@@ -8,23 +8,29 @@ title: 工具安装
 
 一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。
 
+---
 ## 特点
 1. 在 markdown 文件中编写 HTML、JS、VUE、CSS 代码，并且编译成网站。
-2. 将 markdown 文件中的代码生成 demo 网页
-3. 支持自定义生成模板
-4. 支持评论功能
+2. 将 markdown 文件中的代码生成 demo 网页。
+3. 支持自定义生成模板。
+4. 支持评论功能。
+
+---
 
 ## 预装软件
 
 - [nodejs](http://nodejs.org/)
+- [cmder](http://cmder.net/) 在 window 环境下使用该软件进行操作
 
-## 安装
+---
+
+## 使用
+
+### 安装
 
 ```bash
   npm install doraemon-doc -g --registry=https://registry.npm.taobao.org
 ```
-
-## 使用
 
 ### 安装模板
 ```bash
