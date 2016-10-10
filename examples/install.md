@@ -1,12 +1,16 @@
 ---
 category: 说明
+category-order: 1
 title: 工具安装
+article-order: 1
 ---
 ---
 
 ## 说明
 
 一款文档生成器，能把 markdown 文件转化成 HTML 网站，方便开发者编写组件的说明文档。
+
+**求求你给我个 [GitHub star](https://github.com/v-kakashi/doraemon-doc) 吧！**
 
 ---
 ## 特点

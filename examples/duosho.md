@@ -1,6 +1,8 @@
 ---
 category: 说明
+category-order: 1
 title: 多说评论插件
+article-order: 3
 ---
 
 ---

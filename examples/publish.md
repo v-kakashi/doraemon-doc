@@ -1,6 +1,8 @@
 ---
 category: 说明
+category-order: 1
 title: 发布 GitHub Pages
+article-order: 2
 ---
 
 ---
