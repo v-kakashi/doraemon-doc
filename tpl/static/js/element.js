@@ -55,7 +55,6 @@ $(function ready () {
     }
 
     var tplData = []
-    console.log(menuMap)
     for (key in menuMap) {
       menuMap[key].items.sort(function (a, b) {
         return a['article-order'] >= b['article-order']
