@@ -7,8 +7,7 @@ import Copy from 'copy-webpack-plugin'
 import Menu from './menus-webpack-plugin'
 import Index from './index-webpack-plugin'
 
-const root = path.join(__dirname, '../')
-
+// const root = path.join(__dirname, '../')
 const getDemoFiles = function (dir) {
   return glob.sync(join(dir, '**/*.{js,vue,html,md}'))
 }
@@ -34,17 +33,17 @@ const getEntry = function (source) {
 }
 
 const babelQuery = {
-  "presets": [
-    "es2015",
-    "stage-0"
+  'presets': [
+    'es2015',
+    'stage-0'
   ],
-  "plugins": [
-    "add-module-exports",
-    "syntax-async-functions",
-    "transform-regenerator",
-    "dynamic-import-webpack"
+  'plugins': [
+    'add-module-exports',
+    'syntax-async-functions',
+    'transform-regenerator',
+    'dynamic-import-webpack'
   ],
-  "comments": false
+  'comments': false
 }
 
 export default function (source, asset, dest, cwd, tpl, config, indexHtml, publicPath, duoshuoName) {
@@ -52,7 +51,6 @@ export default function (source, asset, dest, cwd, tpl, config, indexHtml, publi
 
   var theme = 'default'
   // const webpackConfig = getWebpackLoaderConfig({ cwd, devtool: , theme })
-
 
   // ------------------------------------
   // Utilities
@@ -228,5 +226,3 @@ export default function (source, asset, dest, cwd, tpl, config, indexHtml, publi
 
   return webpackConfig
 }
-
-
