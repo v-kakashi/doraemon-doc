@@ -1,4 +1,5 @@
 import getBabelCommonConfig from './getBabelConfig'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import path from 'path'
 import fs from 'fs'
 var utils = require('./utils')
@@ -50,9 +51,18 @@ export default function getWebpackCommonConfig ({cwd, devtool, theme}) {
       require('postcss-reporter')()
     ],
     module: {
-      loaders: [{
+      rules: [{
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            css: ExtractTextPlugin.extract({
+              use: 'css-loader?sourceMap',
+              fallback: 'vue-style-loader'
+            }),
+            js: 'babel-loader'
+          }
+        }
       },
       {
         test: /\.js$/,
