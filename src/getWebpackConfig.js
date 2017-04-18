@@ -14,7 +14,6 @@ const getDemoFiles = function (dir) {
 
 const getEntry = function (source) {
   const files = getDemoFiles(source)
-
   const entry = {}
   files.forEach(file => {
     const ext = path.extname(file)
@@ -25,13 +24,13 @@ const getEntry = function (source) {
       ext === '.md' ||
       (ext === '.js' || ext === '.vue') && files.indexOf(`${pathWithoutExt}.html`) !== -1
     ) {
-      entry[pathWithoutExt] = file
+      entry[pathWithoutExt] = './' + file
     }
   })
 
   return entry
 }
-
+/*
 const babelQuery = {
   'presets': [
     'es2015',
@@ -45,10 +44,9 @@ const babelQuery = {
   ],
   'comments': false
 }
-
+*/
 export default function (source, asset, dest, cwd, tpl, config, indexHtml, publicPath, duoshuoName) {
-  const pkg = require(join(cwd, 'package.json'))
-
+  // const pkg = require(join(cwd, 'package.json'))
   var theme = 'default'
   // const webpackConfig = getWebpackLoaderConfig({ cwd, devtool: , theme })
 
@@ -108,18 +106,14 @@ export default function (source, asset, dest, cwd, tpl, config, indexHtml, publi
     autoprefixer: false
   }
   const entry = getEntry(source)
-  console.log(path.join(cwd, source))
   const webpackConfig = {
     devtool: 'source-map',
-    // target: 'web',
-    entry: {
-      'dddeeee': './vue.md'
-    },
+    target: 'web',
+    entry,
     resolve: {
       // root: cwd,
       alias: {
-        // [`${pkg.name}$`]: join(cwd, 'index.js'),
-        [pkg.name]: cwd
+        'vue$': 'vue/dist/vue.common.js'
       },
       // modulesDirectories: ['node_modules', join(__dirname, '../node_modules'), join(root, 'node_modules')],
       extensions: ['.js', '.vue', '.md']
@@ -133,14 +127,10 @@ export default function (source, asset, dest, cwd, tpl, config, indexHtml, publi
       rules: [
         {
           test: /\.md$/,
-          loader: `babel-loader?${JSON.stringify(babelQuery)}!doraemon-md-loader?template=${tpl}&publicPath=${publicPath}&duoshuoName=${duoshuoName}`,
-          // include: path.join(cwd, source),
-          enforce: 'pre'
-        }, {
-          test: /\.(js|vue)$/,
-          loader: `babel-loader?${JSON.stringify(babelQuery)}!atool-doc-js-loader?template=${tpl}`,
-          include: path.join(cwd, source),
-          enforce: 'pre'
+          use: [
+            { loader: 'doraemon-md-loader', query: {template: tpl, publicPath, duoshuoName, cwd, demoSource: publicPath} }
+          ],
+          include: path.join(cwd, source)
         }, {
           test: /\.vue$/,
           loader: 'vue-loader',
@@ -157,8 +147,7 @@ export default function (source, asset, dest, cwd, tpl, config, indexHtml, publi
           test: /\.js$/,
           // platojs 模块需要 babel 处理
           exclude: /node_modules[/\\](?!platojs)/,
-          loader: 'babel-loader',
-          query: babelQuery
+          loader: 'babel-loader'
         }, {
           test: /\.html$/,
           loader: 'vue-html-loader'
@@ -212,8 +201,13 @@ export default function (source, asset, dest, cwd, tpl, config, indexHtml, publi
       },
       vue: vueLoaderOptions
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"dev"'
+      }
+    }),
     // new ExtractTextPlugin('[name].[contenthash].css'),
-    new webpack.optimize.CommonsChunkPlugin('common.js'),
+    new webpack.optimize.CommonsChunkPlugin('common'),
     new Copy([{ from: asset, to: asset }]),
     new Index({ indexHtml }),
     new Menu({
